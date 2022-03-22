@@ -42,131 +42,192 @@
         </div>
     </nav>
 <!-- Barre de navigation -->   
+<div class="login-form">
+    <?php 
+                if(isset($_GET['reg_err']))
+                {
+                    $err = htmlspecialchars($_GET['reg_err']);
+
+                    switch($err)
+                    {
+                        case 'success':
+                        ?>
+                            <div class="alert alert-success">
+                                <strong>Succès</strong> inscription réussie !
+                            </div>
+                        <?php
+                        break;
+
+                        case 'password':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> mot de passe différent
+                            </div>
+                        <?php
+                        break;
+
+                        case 'email':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> email non valide
+                            </div>
+                        <?php
+                        break;
+
+                        case 'email_length':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> email trop long
+                            </div>
+                        <?php 
+                        break;
+
+                        case 'already':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> compte deja existant
+                            </div>
+                        <?php 
+
+                    }
+                }
+    ?>
 
 
-<div class="container-fluid section">
+    <div class="container-fluid section">
 
     
-    <div class="row">
-        
-        <div class="col-6 slogan">
-            <fieldset class="form1">
-            <legend><b>Inscription</b></legend>
-                <form class="needs-validation" novalidate>
-                    
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">NOM</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="NOM" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre NOM.
+        <div class="row text">
+            
+            <div class="col-6 slogan">
+                <fieldset class="form1">
+                <legend><b>Inscription</b></legend>
+                    <form class="needs-validation" action="inscription_traitement.php" method="post" novalidate >
+                        
+                        <div class="row">
+                            <div class="form-group"> 
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom01" class="label">NOM</label>
+                                <input type="text" name="nom" class="form-control" id="validationCustom01" placeholder="NOM" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre NOM.
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom02">Prénom</label>
+                                <input type="text" name="prenom" class="form-control" id="validationCustom02" placeholder="Prénom" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre prénom.
+                                </div>
+                            </div>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom02">Prénom</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="Prénom" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre prénom.
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom03">Date de naissance</label>
-                            <input type="date" class="form-control" id="validationCustom03" placeholder="Date de naissance" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre date de naissance.
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom04">Adresse mail</label>
-                            <input type="text" class="form-control" id="validationCustom04" placeholder="Adresse mail" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre Adresse mail.
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom04">Adresse mail</label>
+                                <input type="text" name="email" class="form-control" id="validationCustom04" placeholder="Adresse mail" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre Adresse mail.
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
+                        <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom05">Adresse</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="Adresse" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre Adresse.
+                                <label for="validationCustom05">Numéro de voie</label>
+                                <input type="text" name="voie" class="form-control" id="validationCustom05" placeholder="Numéro de voie" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre Numéro de voie.
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom06">Ville</label>
-                            <input type="text" class="form-control" id="validationCustom06" placeholder="Ville" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre Ville.
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom05">Rue</label>
+                                <input type="text" name="rue" class="form-control" id="validationCustom05" placeholder="Rue" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre Adresse.
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom07">Code Postal</label>
-                            <input type="text" class="form-control" id="validationCustom07" placeholder="Code Postal" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre code postal.
+                        </div> 
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                    <label for="validationCustom06">Ville</label>
+                                    <input type="text" name="ville" class="form-control" id="validationCustom06" placeholder="Ville" required>
+                                    <div class="invalid-feedback">
+                                        Merci d'indiquer votre Ville.
+                                    </div>
+                            </div> 
+                            <div class="col-md-4 mb-3">
+                                    <label for="validationCustom07">Code Postal</label>
+                                    <input type="text" name="code_postal" class="form-control" id="validationCustom07" placeholder="Code Postal" required>
+                                    <div class="invalid-feedback">
+                                        Merci d'indiquer votre code postal.
+                                    </div>
                             </div>
+                            
                         </div>
-                    </div> 
 
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom08">Centre</label>
-                            <input type="text" class="form-control" id="validationCustom08" placeholder="Centre" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre Centre.
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom08">Centre</label>
+                                <input type="text" name="centre" class="form-control" id="validationCustom08" placeholder="Centre" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre Centre.
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom09">Promotion</label>
-                            <input type="text" class="form-control" id="validationCustom09" placeholder="Promotion" required>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre Promotion.
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom09">Promotion</label>
+                                <input type="text" name="promotion" class="form-control" id="validationCustom09" placeholder="Promotion" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre Promotion.
+                                </div>
                             </div>
+                            <div class="form-group col-md-4">
+                                <label for="validationCustom10">Quel est votre rôle?</label>
+                                <select id="choixCategorie" name="role" class="form-select"  id="validationCustom10" required>
+                                <option selected disabled value="">Selectionner...</option>
+                                <option value="Pilote">Pilote</option>
+                                <option value="Etudiant">Etudiant</option>
+                                <option value="Délégué">Délégué</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre Rôle.
+                                </div>  
+                            </div> 
+                            </div>
+                            <div class="row">
+                            <div class="col-md-5 mb-3">
+                                    <label for="validationCustom06">Mot de passe</label>
+                                    <input type="text" name="password" class="form-control" id="validationCustom11" placeholder="Mot de passe" required>
+                                    <div class="invalid-feedback">
+                                        Merci d'indiquer votre mot de passe.
+                                    </div>
+                            </div> 
+                            <div class="col-md-5 mb-3">
+                                    <label for="validationCustom07">Confirmation mot de passe</label>
+                                    <input type="text" name="password_retype" class="form-control" id="validationCustom12" placeholder="Confirmation mot de passe" required>
+                                    <div class="invalid-feedback">
+                                        Merci de confirmer votre mot de passe.
+                                    </div>
+                            </div>
+                            
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputState">Quel est votre rôle?</label>
-                            <select id="choixCategorie" class="form-control" onchange="myFunction()" required>
-                              <option selected value="">Selectionner...</option>
-                              <option value="executionDeScript">Pilote</option>
-                              <option>Etudiant</option>
-                              <option>Délégué</option>
-                            </select>
-                            <div id="collapseCategorie"></div>   
-                        </div>
-                            <div class="invalid-feedback">
-                                Merci d'indiquer votre code postal.
-                            </div>  
-                    </div> 
 
 
 
-
-                    <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                        <label class="form-check-label" for="invalidCheck">
-                        Agree to terms and conditions
-                        </label>
-                        <div class="invalid-feedback">
-                        You must agree before submitting.
-                        </div>
-                    </div>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Submit form</button>
-                </form>
-        </fieldset>
+                            
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                    </form>
+            </fieldset>
+            </div>
+  
+            <div class="col-4 slogan"></div>
+            </div>
         </div>
-  
-        <div class="col-4 slogan"></div>
     </div>
+
 </div>
-  
-
-
 
 
 <!-- Footer -->
@@ -269,6 +330,9 @@
     <!-- Copyright -->
 </footer>
 <!-- Footer -->
+<!-- onchange="myFunction()" 
+value="executionDeScript"
+value=""-->
 <script src="./assets/inscription.js"></script> 
 </body>
 </html>

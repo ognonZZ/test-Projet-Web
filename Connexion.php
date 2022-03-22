@@ -25,6 +25,41 @@
                 <div><h1>Avec InternView, ayez une vision sur vos stages.</h1></div>
             </div>
             <div class="col-lg-5 connexion">
+
+            <div class="login-form">
+             <?php 
+                if(isset($_GET['login_err']))
+                {
+                    $err = htmlspecialchars($_GET['login_err']);
+
+                    switch($err)
+                    {
+                        case 'password':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> mot de passe incorrect
+                            </div>
+                        <?php
+                        break;
+
+                        case 'email':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> email incorrect
+                            </div>
+                        <?php
+                        break;
+
+                        case 'already':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> compte non existant
+                            </div>
+                        <?php
+                        break;
+                    }
+                }
+                ?> 
                 <div class="wrapper fadeInDown">
                     <div id="formContent">
                       <!-- Tabs Titles -->
@@ -35,9 +70,9 @@
                       </div>
                   
                       <!-- Login Form -->
-                      <form>
-                        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                      <form action="connexion_traitement.php" method="post">
+                        <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email" required="required" autocomplete="off">
+                        <input type="password" id="password" class="fadeIn third" name="password" placeholder="Mot de passe" required="required" autocomplete="off">
                         <input type="submit" class="fadeIn fourth" value="Log In">
                       </form>
                   
@@ -49,6 +84,7 @@
                   
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

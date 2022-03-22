@@ -1,3 +1,11 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }
+?>
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -43,7 +51,8 @@
     </nav>
     <div><br></div>
 <!-- Barre de navigation -->
-
+<h1>Bonjour ! <?php echo $_SESSION['user']; ?> </h1>
+        <a href="deconnexion.php" class="btn-danger btn-lg"> Déconnexion </a>
 <!-- Footer -->
     <footer class="bg-light text-center text-lg-start">
         <div class="container-fluid header">
