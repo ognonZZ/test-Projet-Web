@@ -1,4 +1,5 @@
 <?php 
+    session_set_cookie_params(0);
     session_start();
     if(!isset($_SESSION['user'])){
         header('Location:connexion.php');
@@ -61,7 +62,7 @@
 
     <!-- Barre de recherche-->
 
-<div class="container-fluid">
+
 
     <form class="form-inline" action="/recherche/" method="get">
         <fieldset>    
@@ -81,6 +82,7 @@
     </form>
 
         <br>
+<div class="container-fluid">        
     <div class="row justify-content-around">
         
         <div class="col-5">
@@ -104,6 +106,7 @@
                         <br>
                         <br>
                         <br>
+                        <a href="deconnexion.php" class="btn-danger btn-lg"> Déconnexion </a>
                         <br>
                         <br>
                         <br>
