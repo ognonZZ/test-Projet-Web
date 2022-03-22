@@ -1,71 +1,48 @@
-.barnav{
-    text-align: center;
-    margin: auto;
+
+.padding-0 {
+    padding-right: 0;
+    padding-left: 0;
 }
 
-.header{
-    background-color: #3c3f49;
+.recherche {
+    background-color: #f8634a;
+    margin-top: none;
 }
 
-.logo{
-    width: 60%;
-    margin-top: 4%;
-    margin-bottom: 4%;
+body {
+    background-color: #f8634a;
 }
 
-.txt{
-    color:rgb(174, 145, 82);
+.twitter {
+    width: 600px;
+    border: 3px solid black;
+    margin-left: 45px;
+    margin-right: 10px;
+    margin-top: 1px;
 }
 
-.navicon{
-    padding: 1%;    
-    color:rgb(174, 145, 82);
-    filter: drop-shadow(0 0 1px rgb(53,55,69));
+.onestlabis {
+    background-color: #e4e4e4;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.navicon:hover {
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: 5px;
-    border-bottom-style:solid;
-    border-color:rgb(174, 145, 82);
-}  
-
-.button {
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: none;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: rgb(174, 145, 82);
-    background-color: #3c3f49;
-}
-  
-.button:hover {
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: 5px;
-    border-bottom-style:solid;
-    border-color:rgb(174, 145, 82);
-    
+.Stagesrecent {
+    background-color: #e4e4e4;
+    border: 10px;
+    overflow-y: scroll;
+    scollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
 }
 
-.copyright{
-    color:rgb(174, 145, 82);
+.scroller {
+    width: 750px;
+    height: 500px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 1px;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+    background-color: #e4e4e4;
 }
-
-.link{
-    text-decoration: none;
-    color:rgb(174, 145, 82);
-}
-
-.background{
-    background-color:#3c3f49;
-    padding-top: 1.5%;
-}
-

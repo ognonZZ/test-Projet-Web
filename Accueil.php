@@ -18,6 +18,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/nav&footer.css" class="css">
+    <link rel="stylesheet" href="./assets/accueil.css" class="css">
+    <Link Rel="Stylesheet"Href="Https://Stackpath.Bootstrapcdn.Com/Bootstrap/4.3.1/Css/Bootstrap.Min.Css">
+    <Link Rel="Stylesheet" Href="Https://Cdnjs.Cloudflare.Com/Ajax/Libs/Font-Awesome/5.9.0/Css/All.Css">
 
 </head>
 <body>
@@ -25,15 +28,18 @@
     <nav>
         <div class="container-fluid header">
             <div class="row">
+                <div class="row">
+                <div class="recherche">
+                </div>
                 <div class="col-lg-2 barnav">
                     <img class="logo" src="image/logo.png" alt="LOGO">
                 </div>
                 <div class="col-lg-4 barnav">
                 </div>
                 <div class="col-lg-3 barnav">
-                    <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.html';">
-                    <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.html';">
-                    <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.html';">
+                    <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.php';">
+                    <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.php';">
+                    <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.php';">
                 </div>
                 <div class="col-lg-1 barnav">
                     <i class="fas fa-heart navicon " onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
@@ -51,9 +57,68 @@
     </nav>
     <div><br></div>
 <!-- Barre de navigation -->
-<h1>Bonjour ! <?php echo $_SESSION['user']; ?> </h1>
-        <a href="deconnexion.php" class="btn-danger btn-lg"> Déconnexion </a>
+
+
+    <!-- Barre de recherche-->
+
+<div class="container">
+  <form class="form-inline" action="/recherche/" method="get">
+    <fieldset>    
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <select id="oCategorie" name="oCategorie" class="form-control">
+            <option selected="selected" value="0">Catégorie</option>
+            <option value="1">...</option>
+          </select>
+        </div>
+        <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Recherche</button>
+        </div>
+      </div>
+    </fieldset> 
+  </form>
+</div>
+
+<br>
+<div class="row">
+    <div class ="scroller">
+        <div class="col-6">
+            <div class="onestlabis">
+             <div class="twitter">
+                <a class="twitter-timeline" href="https://twitter.com/CESIingenieurs?ref_src=twsrc%5Etfw">Actualité twitter by CESIingenieurs</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Offres de stages recentes -->
+
+<div class="col-6">
+    <div class="onestlabis">
+        <div class="Stagesrecent">
+                 <article class="txt">Ici se trouvera l'ensemble des sites internet
+                    <br>
+                <br>
+            <br>
+        <br>
+    <br>
+<br>
+<br>
+<br>
+</article>
+            </div>       
+        </div>  
+    </div>
+</div>
+
+
+
+<br>
 <!-- Footer -->
+
     <footer class="bg-light text-center text-lg-start">
         <div class="container-fluid header">
             <div class="row background">
@@ -77,10 +142,10 @@
                 <div class="col-md-2">
                         <ul class="list-unstyled mb-0">
                             <li>
-                            <a href="Stages.html" class="link">Stage</a>
+                            <a href="Stages.php" class="link">Stage</a>
                             </li>
                             <li>
-                            <a href="Entreprises.html" class="link">Entreprise</a>
+                            <a href="Entreprises.php" class="link">Entreprise</a>
                             </li>
                             <li>
                             <a href="#!" class="link">Partenariat</a>
@@ -155,4 +220,5 @@
 <!-- Footer -->
 </body>
 </html>
+
 
