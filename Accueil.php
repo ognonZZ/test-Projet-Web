@@ -47,7 +47,7 @@
 					<i class="fas fa-bell navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
                 </div>
                 <div class="col-lg-1 barnav">
-                    <div class="txt">Prénom NOM</div>
+                    <div class="txt"><?php echo $_SESSION['user']; ?></div>
                 </div>
                 <div class="col-lg-1 barnav">
                     <img class="photoprofil" src="image/PP.png" width= "20%" alt="photoprofil" style="border-radius: 50%">
@@ -61,61 +61,60 @@
 
     <!-- Barre de recherche-->
 
-<div class="container">
-  <form class="form-inline" action="/recherche/" method="get">
-    <fieldset>    
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <select id="oCategorie" name="oCategorie" class="form-control">
-            <option selected="selected" value="0">Catégorie</option>
-            <option value="1">...</option>
-          </select>
-        </div>
-        <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="submit">Recherche</button>
-        </div>
-      </div>
-    </fieldset> 
-  </form>
-</div>
+<div class="container-fluid">
 
-<br>
-<div class="row">
-    <div class ="scroller">
-        <div class="col-6">
-            <div class="onestlabis">
-             <div class="twitter">
-                <a class="twitter-timeline" href="https://twitter.com/CESIingenieurs?ref_src=twsrc%5Etfw">Actualité twitter by CESIingenieurs</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-    </div>
-</div>
-</div>
+    <form class="form-inline" action="/recherche/" method="get">
+        <fieldset>    
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <select id="oCategorie" name="oCategorie" class="form-control">
+                        <option selected="selected" value="0">Catégorie</option>
+                        <option value="1">...</option>
+                    </select>
+                </div>
+                    <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Recherche</button>
+                </div>
+            </div>
+        </fieldset> 
+    </form>
 
-
-<!-- Offres de stages recentes -->
-
-<div class="col-6">
-    <div class="onestlabis">
-        <div class="Stagesrecent">
-                 <article class="txt">Ici se trouvera l'ensemble des sites internet
-                    <br>
-                <br>
-            <br>
         <br>
-    <br>
-<br>
-<br>
-<br>
-</article>
-            </div>       
-        </div>  
-    </div>
+    <div class="row justify-content-around">
+        
+        <div class="col-5">
+            <div class ="scroller">
+                <div class="onestlabis">
+                    <div class="twitter">
+                        <a class="twitter-timeline" href="https://twitter.com/CESIingenieurs?ref_src=twsrc%5Etfw">Actualité twitter by CESIingenieurs</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Offres de stages recentes -->
+
+        <div class="col-5">
+            <div class="onestlabis">
+                <div class="Stagesrecent">
+                    <article class="txt">Ici se trouvera l'ensemble des offres de stages
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </article>
+                </div>       
+            </div>  
+        </div>
+    </div>  
 </div>
-
-
-
 <br>
 <!-- Footer -->
 

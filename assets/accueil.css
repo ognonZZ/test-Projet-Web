@@ -14,10 +14,10 @@ body {
 }
 
 .twitter {
-    width: 600px;
+    width: 90%;
     border: 3px solid black;
     margin-left: 45px;
-    margin-right: 10px;
+    margin-right: 45px;
     margin-top: 1px;
 }
 
@@ -36,8 +36,7 @@ body {
 }
 
 .scroller {
-    width: 750px;
-    height: 500px;
+    height: 550px;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 1px;
