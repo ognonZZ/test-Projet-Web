@@ -10,7 +10,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/nav&footer.css" class="css">
-    <link rel="stylesheet" href="./assets/gestion.css" class="css">
+    <link rel="stylesheet" href="./assets/creation_entreprise.css" class="css">
 </head>
 <body>
 <!-- Barre de navigation -->
@@ -46,38 +46,64 @@
 
 
 <div class="container-fluid ">
-
 <div class="section">
-<div class="row text justify-content-around">
+    <div class="row text">
     
-    <div class="col-5">
-        <fieldset class="form1">
-            <legend><b>Création</b></legend>
-                
-                        <div class="row">
-                            <div class="form-group"> 
-                                <div class="col-md-4 mb-3">
-                                    <button class="btn btn-primary" type="submit" onclick="window.location.href='creation_stage.php'">Création offre de stage</button>
+        <div class="col-6 slogan">
+            <fieldset class="form1">
+            <legend><b>Création d'une fiche entreprise</b></legend>
+                <form class="needs-validation" action="inscription_traitement.php" method="post" novalidate >
+                    
+                    <div class="row">
+                        <div class="form-group"> 
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom01" class="label">Nom de l'entreprise</label>
+                                <input type="text" name="nom_entreprise" class="form-control" id="validationCustom01" placeholder="Nom de l'entreprise" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer le nom de l'entreprise.
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                    <button class="btn btn-primary" type="submit" onclick="window.location.href='creation_entreprise.php'">Création fiche entreprise </button>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom02">Logo entreprise</label>
+                                <input type="text" name="logo_entreprise" class="form-control" id="validationCustom02" placeholder="Logo entreprise" required>
+                                <div class="invalid-feedback">
+                                    Merci d'insérer le logo entreprise.
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom14">Secteur d'activité</label>
+                                <input type="text" name="duree_stage" class="form-control" id="validationCustom14" placeholder="Secteur d'activité" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer le secteur d'activité.
                                 </div>
                             </div>
                         </div>
-             
-        </fieldset>
-    </div>
+                    </div>
 
-    <div class="col-5">
-        <fieldset class="form1">
-            <legend><b>Modification</b></legend>
-             
+                    <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom05">Nombre de stagiaire déjà accepté</label>
+                                <input type="text" name="rue" class="form-control" id="validationCustom05" placeholder="Nombre de stagiaire déjà accepté" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer le nombre de stagiaire déjà accepté.
+                                </div>
+                            </div>
+                    </div>
 
-                
+                   
+
+
+
+
+                        
+                    <button class="btn btn-primary" type="submit">Créer Offre de Stage</button>
+                </form>
         </fieldset>
+        </div>
+
+        <div class="col-4 slogan"></div>
+        </div>
     </div>
-    </div>
-</div>
 </div>
 
 

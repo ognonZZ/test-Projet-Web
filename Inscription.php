@@ -94,9 +94,9 @@
     ?>
 
 
-    <div class="container-fluid section">
+    <div class="container-fluid ">
 
-    
+        <div class="section">
         <div class="row text">
             
             <div class="col-6 slogan">
@@ -199,14 +199,14 @@
                             <div class="row">
                             <div class="col-md-5 mb-3">
                                     <label for="validationCustom06">Mot de passe</label>
-                                    <input type="text" name="password" class="form-control" id="validationCustom11" placeholder="Mot de passe" required>
+                                    <input type="password" name="password" class="form-control" id="validationCustom11" placeholder="Mot de passe" required>
                                     <div class="invalid-feedback">
                                         Merci d'indiquer votre mot de passe.
                                     </div>
                             </div> 
                             <div class="col-md-5 mb-3">
                                     <label for="validationCustom07">Confirmation mot de passe</label>
-                                    <input type="text" name="password_retype" class="form-control" id="validationCustom12" placeholder="Confirmation mot de passe" required>
+                                    <input type="password" name="password_retype" class="form-control" id="validationCustom12" placeholder="Confirmation mot de passe" required>
                                     <div class="invalid-feedback">
                                         Merci de confirmer votre mot de passe.
                                     </div>
@@ -224,6 +224,7 @@
   
             <div class="col-4 slogan"></div>
             </div>
+        </div>
         </div>
     </div>
 
