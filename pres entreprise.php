@@ -71,6 +71,14 @@
                 <br>
                 <title> localité : <title>
                  <br>
+                 <h3 id="a">Ville</h3>
+                 <br>
+                 <h3 id="a">Numéro de voie</h3>
+                 <br>
+                 <h3 id="a">Code Postal</h3>
+                 <br>
+                 <h3 id="a">Ville</h3>
+                 <br>
             </div>
         </div>
 
