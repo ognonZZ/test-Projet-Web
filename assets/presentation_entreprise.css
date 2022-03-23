@@ -1,0 +1,62 @@
+
+.oui{
+	background-color: #e4e4e4;
+}	
+
+.txt {
+  	text-align: left;
+  }
+
+#date {
+	text-align: right;
+/*	border: 1px solid black;*/
+	padding-right: 20px;
+	width: 50%;
+	float: right;
+	font-size: 15px;
+}
+
+
+.logosss {
+	border: 1px solid black;
+	height: 40px;
+	width: 40px;
+	float: right;
+}
+
+#description {
+	border: 2px solid black;
+	background-color: white;
+	font-size: 10px;
+	padding-bottom: 150px;
+	width: 50%;
+	position: relative;
+	left: 45%;
+	bottom: 300px;
+}
+
+
+#a {
+	font-size: 15px;
+}
+
+
+.scroller {
+  width: 750px;
+  height: 500px;
+  margin-top: 1px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+  background-color: #e4e4e4;
+}
+
+.droite {
+	border: 3px solid black	;
+	
+}
+
+.gauche {
+	border: 3px solid black;
+
+}
