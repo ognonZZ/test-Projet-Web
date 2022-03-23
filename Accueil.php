@@ -68,7 +68,8 @@
         <div class="input-group-prepend">
           <select id="oCategorie" name="oCategorie" class="form-control">
             <option selected="selected" value="0">Catégorie</option>
-            <option value="1">...</option>
+            <option value="1">INFO</option>
+            <option value="2">BTP</option>
           </select>
         </div>
         <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">

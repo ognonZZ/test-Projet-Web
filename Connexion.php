@@ -79,7 +79,7 @@
                       <!-- Remind Passowrd -->
                       <div id="formFooter">
                         <div>Vous ne possédez pas de compte ?</div>
-                        <a class="underlineHover" href="./Inscription.html">Inscrivez vous!</a>
+                        <a class="underlineHover" href="./Inscription.php">Inscrivez vous!</a>
                       </div>
                   
                     </div>
