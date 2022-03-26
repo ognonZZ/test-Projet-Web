@@ -60,19 +60,19 @@
 
 
     <!-- Barre de recherche-->
-
-<div class="container">
-  <form class="form-inline" action="/recherche/" method="get">
-    <fieldset>    
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <select id="oCategorie" name="oCategorie" class="form-control">
-            <option selected="selected" value="0">Catégorie</option>
-            <option value="1">INFO</option>
-            <option value="2">BTP</option>
-          </select>
+<div class="container-fluid">
+    <div class="container">
+        <form class="form-inline" action="/recherche/" method="get">
+            <fieldset>    
+                <div class="input-group">
+                <div class="input-group-prepend">
+                <select id="oCategorie" name="oCategorie" class="form-control">
+                <option selected="selected" value="0">Catégorie</option>
+                <option value="1">INFO</option>
+                <option value="2">BTP</option>
+            </select>
         </div>
-        <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
+            <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
         <div class="input-group-append">
           <button class="btn btn-primary" type="submit">Recherche</button>
         </div>
@@ -81,39 +81,53 @@
   </form>
 </div>
 
-<br>
-<div class="row">
-    <div class ="scroller">
+
+
+<!-- Twitter-->
+
+<div class="container-fluid">
+    <div class="row">
         <div class="col-6">
-            <div class="onestlabis">
-             <div class="twitter">
+            <br>
+            <div class="row">
+            <div class ="scroller">
+                <div class="col-6">
+                <div class="onestlabis">
+                <div class="twitter">
                 <a class="twitter-timeline" href="https://twitter.com/CESIingenieurs?ref_src=twsrc%5Etfw">Actualité twitter by CESIingenieurs</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
     </div>
+    </div>
 </div>
 </div>
 
+<!-- Offres de stages-->
 
-<!-- Offres de stages recentes -->
-
-<div class="col-6">
-    <div class="onestlabis">
+        </div>
+        <div class="col-6">
+        <br>
+           <div class="onestlabis">
         <div class="Stagesrecent">
                  <article class="txt">Ici se trouvera l'ensemble des sites internet
                     <br>
-                <br>
-            <br>
-        <br>
-    <br>
-<br>
-<br>
-<br>
-</article>
-            </div>       
-        </div>  
-    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                   </article>
+</div>       
+</div>  
 </div>
+</div>
+</div>
+</div>
+
+
+
 
 
 

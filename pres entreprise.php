@@ -48,28 +48,30 @@
 
 
 <!-- Presentation du stage-->
-<div class="row">
+<div class="container">
     
+        
             <div class="col-6">
+            <div class="gauche">
                 <div class="txt">
-                <legend>Stage de </legend>
+                <legend>.   Stage de </legend>
                  <br>
-                <h2 id="date">Date de l'offre:</h2>
+                <h2 id="date">.  Date de l'offre:</h2>
                 <br>
-                <h2 id="a">Nom Entreprises</h2> 
+                <h2 id="a">.     Nom Entreprises</h2> 
                  <br>
-                <h3 id="a">Durée de rémunération:</h3>
+                <h3 id="a">.    Durée de rémunération:</h3>
                  <br>
-                <h3 id="a">Nombres de place disponible:</h3>
+                <h3 id="a">.    Nombres de place disponible:</h3>
                  <br>
-                <h3 id="a">Nombre de stagiaire déjà accepté:</h3>
+                <h3 id="a">.     Nombre de stagiaire déjà accepté:</h3>
                  <br>
-                <h3 id="a">Domaine de stage:</h3>
+                <h3 id="a">.     Domaine de stage:</h3>
                  <br>
-                <h3 id="a">Adresse mail de contact du stage:</h3>
+                <h3 id="a">.       Adresse mail de contact du stage:</h3>
                 <br>
                 <br>
-                <title> localité : <title>
+                <h3 id="a">localité : </h3>
                  <br>
                  <h3 id="a">Ville</h3>
                  <br>
@@ -79,10 +81,10 @@
                  <br>
                  <h3 id="a">Ville</h3>
                  <br>
-            </div>
+            
         </div>
-
-
+        </div>
+        </div>
 
 
     
@@ -203,4 +205,6 @@
 <!-- Footer -->
 </body>
 </html>
+
+
 

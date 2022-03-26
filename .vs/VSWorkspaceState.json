@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets"
   ],
-  "SelectedNode": "\\Accueil.php",
+  "SelectedNode": "\\assets\\accueil.css",
   "PreviewInSolutionExplorer": false
 }

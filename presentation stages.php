@@ -64,7 +64,7 @@
                  <br>
                 <h3 id="a">Domaine de stage:</h3>
                  <br>
-                <h3 id="a">Adresse mail de contact du stage:</h3>
+                <h3 id="a">Adresse mail de contact du stage</h3>
                  <br>
             </div>
         </div>

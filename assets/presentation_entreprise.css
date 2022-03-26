@@ -10,19 +10,13 @@
 #date {
 	text-align: right;
 /*	border: 1px solid black;*/
-	padding-right: 20px;
+	padding-right: 40px;
 	width: 50%;
 	float: right;
 	font-size: 15px;
 }
 
 
-.logosss {
-	border: 1px solid black;
-	height: 40px;
-	width: 40px;
-	float: right;
-}
 
 #description {
 	border: 2px solid black;
@@ -51,12 +45,12 @@
   background-color: #e4e4e4;
 }
 
-.droite {
-	border: 3px solid black	;
-	
-}
+
 
 .gauche {
 	border: 3px solid black;
+}
 
+.container {
+	margin-left:1px;
 }
