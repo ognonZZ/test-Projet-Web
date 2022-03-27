@@ -45,14 +45,46 @@
 <!-- Barre de navigation -->
 
 
+
 <div class="container-fluid ">
+
+
+<?php 
+                if(isset($_GET['reg_err']))
+                {
+                    $err = htmlspecialchars($_GET['reg_err']);
+
+                    switch($err)
+                    {
+                        case 'success':
+                        ?>
+                            <div class="alert alert-success">
+                                <strong>Succès</strong> Création de l'entreprise réussie !
+                            </div>
+                        <?php
+                        break;
+
+                        case 'already':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> Entreprise déjà existante
+                            </div>
+                        <?php 
+
+                    }
+                }
+    ?>
+
+
+
+
 <div class="section">
     <div class="row text">
     
         <div class="col-6 slogan">
             <fieldset class="form1">
-            <legend><b>Création d'une fiche entreprise</b></legend>
-                <form class="needs-validation" action="inscription_traitement.php" method="post" novalidate >
+            <legend><h2><b>Création d'une fiche entreprise</b></h2></legend>
+                <form class="needs-validation" action="creation_entreprise_traitement.php" method="post" novalidate >
                     
                     <div class="row">
                         <div class="form-group"> 
@@ -64,15 +96,8 @@
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustom02">Logo entreprise</label>
-                                <input type="text" name="logo_entreprise" class="form-control" id="validationCustom02" placeholder="Logo entreprise" required>
-                                <div class="invalid-feedback">
-                                    Merci d'insérer le logo entreprise.
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
                                 <label for="validationCustom14">Secteur d'activité</label>
-                                <input type="text" name="duree_stage" class="form-control" id="validationCustom14" placeholder="Secteur d'activité" required>
+                                <input type="text" name="secteur_activite" class="form-control" id="validationCustom14" placeholder="Secteur d'activité" required>
                                 <div class="invalid-feedback">
                                     Merci d'indiquer le secteur d'activité.
                                 </div>
@@ -83,25 +108,73 @@
                     <div class="row">
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom05">Nombre de stagiaire déjà accepté</label>
-                                <input type="text" name="rue" class="form-control" id="validationCustom05" placeholder="Nombre de stagiaire déjà accepté" required>
+                                <input type="text" name="nb_stagiaire_accepte" class="form-control" id="validationCustom05" placeholder="Nombre de stagiaire déjà accepté" required>
                                 <div class="invalid-feedback">
                                     Merci d'indiquer le nombre de stagiaire déjà accepté.
                                 </div>
                             </div>
                     </div>
+                    <br>
+                    <div class="row">
+                        <label><h3><strong>Localisation de l'entreprise :</strong></h3></label>
+                    </div>
+                    <br>
 
-                   
+                    <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom05">Numéro de voie</label>
+                                <input type="text" name="voie" class="form-control" id="validationCustom05" placeholder="Numéro de voie" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre Numéro de voie.
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationCustom06">Rue</label>
+                                <input type="text" name="rue" class="form-control" id="validationCustom06" placeholder="Rue" required>
+                                <div class="invalid-feedback">
+                                    Merci d'indiquer votre Adresse.
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                    <label for="validationCustom07">Ville</label>
+                                    <input type="text" name="ville" class="form-control" id="validationCustom07" placeholder="Ville" required>
+                                    <div class="invalid-feedback">
+                                        Merci d'indiquer votre Ville.
+                                    </div>
+                            </div> 
+                            <div class="col-md-4 mb-3">
+                                    <label for="validationCustom08">Code Postal</label>
+                                    <input type="text" name="code_postal" class="form-control" id="validationCustom08" placeholder="Code Postal" required>
+                                    <div class="invalid-feedback">
+                                        Merci d'indiquer votre code postal.
+                                    </div>
+                            </div>
+                            
+                        </div>
 
 
 
+                    <div class="row">
+                        <div class="col-md-10 mb-3">
+                            <label for="validationCustom08">Description de l'entreprise</label>
+                            <input type="text" name="description_entreprise" class="form-control" id="validationCustom08" placeholder="Description de l'entreprise" required>
+                            <div class="invalid-feedback">
+                                Merci d'indiquer la description de l'entreprise.
+                            </div>
+                        </div>
+                    </div>
 
+                    <br>
                         
-                    <button class="btn btn-primary" type="submit">Créer Offre de Stage</button>
+                    <button class="btn btn-primary" type="submit">Créer Entreprise</button>
                 </form>
         </fieldset>
         </div>
 
-        <div class="col-4 slogan"></div>
+        <div class="col-6 slogan"></div>
         </div>
     </div>
 </div>
