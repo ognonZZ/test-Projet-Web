@@ -1,3 +1,25 @@
+<?php 
+    session_start();
+    /*if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }*/
+    if(!isset($_COOKIE['user'])){
+        header('Location:connexion.php');
+    }
+    require_once 'config.php';
+
+    $id_user = $_COOKIE['id_user'];
+    $select = $bdd->query('SELECT Liens_du_document FROM documents WHERE ID_utilisateurs_Possede = "'.$id_user.'"');
+    $donnees = $select->fetch();
+    
+    $lien_doc = $donnees['0'];
+
+
+?>
+
+
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -24,7 +46,7 @@
                 <div class="col-lg-4 barnav">
                 </div>
                 <div class="col-lg-3 barnav">
-                    <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.html';">
+                    <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.php';">
                     <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.html';">
                     <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.html';">
                 </div>
@@ -82,71 +104,114 @@
                         <div class="row">
                             <!-- Form Group (first name)-->
                             <div class="col">
-                                <label class="text-dark font-weight-bold" for="inputFirstName">Prenom</label>
-                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter Prenom" value="Prenom">
+                                <label class="text-dark font-weight-bold" for="inputFirstName">Prénom</label>
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['prenom'])?></div>
+                                </div>  
+                                </section>
                             </div>
-                            <div class="col">
-                            <label class="text-dark font-weight-bold" for="inputUsername">Pseudo</label>
-                            <input class="form-control" id="inputUsername" type="text" placeholder="Entrer Pseudo" value="Pseudo">
-                        </div>
                             <!-- Form Group (last name)-->
                             <div class="col">
                                 <label class="text-dark font-weight-bold" for="inputLastName">Nom</label>
-                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter Nom" value="Nom">
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['nom'])?></div>
+                                </div>  
+                                </section>
                             </div>
                         </div>
+
+
+                        <!-- Form Row        -->
+                        <div class="row">                            
+                            <div class="col">
+                            <label class="text-dark font-weight-bold" for="inputUsername">Adresse email</label>
+                            <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['email'])?></div>
+                                </div>  
+                                </section>
+                            </div>
+                        </div>
+
+
+
                         <!-- Form Row        -->
                         <div class="row">
+                                <div class="col">
+                                <label class="text-dark font-weight-bold" for="inputOrgName">Numéro de voie</label>
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['voie'])?></div>
+                                </div>  
+                                </section>
+                            </div>
                             <!-- Form Group (organization name)-->
                             <div class="col">
-                                <label class="text-dark font-weight-bold" for="inputOrgName">Adresse</label>
-                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter Adresse" value="Adresse">
+                                <label class="text-dark font-weight-bold" for="inputOrgName">Rue</label>
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['rue'])?></div>
+                                </div>  
+                                </section>
                             </div>
+                        </div>
+
+                           <!-- Form Row        -->
+                           <div class="row">
                             <!-- Form Group (location)-->
                             <div class="col">
                                 <label class="text-dark font-weight-bold" for="inputLocation">Ville</label>
-                                <input class="form-control" id="inputLocation" type="text" placeholder="Enter Ville" value="Strascitygang">
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['ville'])?></div>
+                                </div>  
+                                </section>
                             </div>
-                        </div>
-                        <!-- Form Group (email address)-->
-                        <div class="testi">
-                            <label class="text-dark font-weight-bold" for="inputEmailAddress">Email</label>
-                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter Email" value="Email@example.com">
-                        </div>
-                        <!-- Form Row-->
-                        <div class="row">
-                            <!-- Form Group (phone number)-->
                             <div class="col">
-                                <label class="text-dark font-weight-bold" for="inputPhone">Telephone</label>
-                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter Telephone" value="555-123-4567">
+                                <label class="text-dark font-weight-bold" for="inputLocation">Code Postal</label>
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['code_postal'])?></div>
+                                </div>  
+                                </section>
                             </div>
-                            <!-- Form Group (birthday)-->
-                            <div class="col">
-                                <label class="text-dark font-weight-bold" for="inputBirthday">Domaine</label>
-                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter Domaine" value="Domaine">
                             </div>
-                        </div>
+                        
                         <!-- Form Row-->
                         <div class="row">
                             <!-- Form Group (first name)-->
                             <div class="col">
                                 <label class="text-dark font-weight-bold" for="inputFirstName">Centre</label>
-                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter Centre" value="Centre">
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['centre'])?></div>
+                                </div>  
+                                </section>
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col">
                                 <label class="text-dark font-weight-bold" for="inputLastName">Promotion</label>
-                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter Promotion" value="Promotion">
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['promotion'])?></div>
+                                </div>  
+                                </section>
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col">
                                 <label class="text-dark font-weight-bold" for="inputLastName">Rôle</label>
-                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter Rôle" value="Rôle">
+                                <section class="profil">
+                                <div class="card-text">
+						            <div class="text-center"><?php echo($_COOKIE['role'])?></div>
+                                </div>  
+                                </section>
                             </div>
                         </div>
                         <!-- Form Row       -->
                         <!-- Save changes button-->
-                        <button class="btn btn-danger" type="button">Sauvegarder???</button>
+                        <!--<button class="btn btn-danger" type="button">Sauvegarder???</button>-->
                     </form>
                 </div>
             </div>
@@ -160,9 +225,7 @@
                 <h4 class="mm">Mon CV</h4>
 				    <div class="card-body ">
 					    <div class="card-text">
-						    <h5 class="mm">blablabla</h5>
-						    <div class="text-center">Co-founder / CTO</div>
-						    <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Vivamus eget eros vestibulum, accumsan ante viverra, condimentum tellus. Curabitur pellentesque convallis purus non ornare. Donec bibendum sed purus dignissim rutrum. Maecenas bibendum feugiat est, et venenatis nunc.</div>
+                            <iframe src="<?php echo $lien_doc; ?>" type="application/pdf" alt="cv" width="100%" height="100%" > </iframe>
 					    </div>
                         
 				    </div><!--//card-body-->
@@ -170,9 +233,9 @@
                         <form action="cv_traitement.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
                             <!-- Le champs 'hidden' doit être défini avant le champs 'file'  -->   
-                            <label>Votre fichier</label> :
-                            <input type="file" name="mon_fichier"><br>
-                            <input type="submit" value="Envoyer">
+                            <label><strong>Selectionner mon CV</strong></label> :
+                            <input type="file" name="mon_fichier" class="btn btn-danger"><br>
+                            <input type="submit" value="Valider" class="btn btn-danger">
                         </form>
 				    </div><!--//card-footer-->
 			    </div><!--//card-->

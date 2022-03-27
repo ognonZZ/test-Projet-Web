@@ -72,3 +72,18 @@ body{
 }
 
 
+.profil{
+
+    border-radius: 3%;
+    background-color: white; 
+}
+
+
+iframe{
+    width: 430px;
+    height: 600px;
+    margin-left: 2vh;
+    margin-bottom: 2vh;
+    background: #000000;
+    border: solid 1px crimson;
+}

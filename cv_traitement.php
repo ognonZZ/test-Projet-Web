@@ -1,4 +1,12 @@
 <?php
+    session_start();
+    /*if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }*/
+    if(!isset($_COOKIE['user'])){
+        header('Location:connexion.php');
+    }
+
 require_once 'config.php';
 
 if ($_FILES['mon_fichier']['error']) {
@@ -24,16 +32,24 @@ if ($_FILES['mon_fichier']['error']) {
   $nomdestination = './document_user/cv_user/'.$name.'';
   move_uploaded_file($nom, $nomdestination);
 
+  $type_doc = "CV";
 
-  $insert_cv = $bdd->prepare('INSERT INTO localites(Code_postal, Rue, Ville, Numero_de_voie) VALUES(:code_postal, :rue, :ville, :voie)');
+  $id_user = $_COOKIE['id_user'];
+  $id_user2 = $_COOKIE['id_user'];
+
+
+  $delete = $bdd->query('DELETE  FROM documents WHERE ID_utilisateurs_Possede = "'.$id_user.'"');
+
+
+  $insert_cv = $bdd->prepare('INSERT INTO documents (Code_document__CV_ou_LM_, Liens_du_document, ID_utilisateurs, ID_utilisateurs_Possede ) VALUES (:type_doc, :nomdestination, :id_user, :id_user2)');
   $insert_cv->execute(array(
-      'code_postal' => $code_postal,
-      'rue' => $rue,
-      'ville' => $ville,
-      'voie' => $voie,
+      'type_doc' => $type_doc,
+      'nomdestination' => $nomdestination,
+      'id_user' => $id_user,
+      'id_user2' => $id_user2,
   ));
 
-  header('Location:profil.php?reg_err=success');
+ header('Location:profil.php?reg_err=success');
 
 }
 

@@ -12,7 +12,7 @@
         $email = strtolower($email); // email transformé en minuscule
         
         // On regarde si l'utilisateur est inscrit dans la table utilisateurs
-        $check = $bdd->prepare('SELECT adresse_mail_utilise, mot_de_passe, Nom, Prenom FROM utilisateurs WHERE adresse_mail_utilise = ?');
+        $check = $bdd->prepare('SELECT * FROM utilisateurs INNER JOIN localites ON utilisateurs.ID_localites_Habite = localites.ID_localites INNER JOIN roles ON utilisateurs.ID_utilisateurs = roles.ID_utilisateurs WHERE adresse_mail_utilise = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
@@ -37,13 +37,40 @@
 
 
                 // Si le mot de passe est le bon
+                
 
+                $id_user = $data['ID_utilisateurs'];
                 $profil_user = $data['Prenom']." ".$data['Nom'];
+                $prenom = $data['Prenom'];
+                $nom = $data['Nom'];
+                $email = $data['adresse_mail_utilise'];
+                $voie = $data['Numero_de_voie'];
+                $rue = $data['Rue'];
+                $ville = $data['Ville'];
+                $code_postal = $data['Code_postal'];
+                $centre = $data['Centre'];
+                $promotion = $data['ID_promotion'];
+                $role = $data['role_nom'];
 
                 $hash=$data['mot_de_passe'];
                 if(password_verify($password,$hash ))
                 {
-                    $_SESSION['user'] = $profil_user;
+                    //$_SESSION['user'] = $profil_user;
+                    $cookieFin = time()+60*60*24;
+                    setcookie("id_user", $id_user, $cookieFin);
+                    setcookie("user", $profil_user, $cookieFin);
+                    setcookie("prenom", $prenom, $cookieFin);
+                    setcookie("nom", $nom, $cookieFin);
+                    setcookie("email", $email, $cookieFin);
+                    setcookie("voie", $voie, $cookieFin);
+                    setcookie("rue", $rue, $cookieFin);
+                    setcookie("ville", $ville, $cookieFin);
+                    setcookie("code_postal", $code_postal, $cookieFin);
+                    setcookie("centre", $centre, $cookieFin);
+                    setcookie("promotion", $promotion, $cookieFin);
+                    setcookie("role", $role, $cookieFin);
+                    
+
                     header('Location:Accueil.php');
       
                 }else header('Location: connexion.php?login_err=password');

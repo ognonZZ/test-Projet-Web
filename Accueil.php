@@ -1,7 +1,10 @@
 <?php 
-    session_set_cookie_params(0);
+    
     session_start();
-    if(!isset($_SESSION['user'])){
+    /*if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }*/
+    if(!isset($_COOKIE['user'])){
         header('Location:connexion.php');
     }
 ?>
@@ -48,7 +51,7 @@
 					<i class="fas fa-bell navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
                 </div>
                 <div class="col-lg-1 barnav">
-                    <div class="txt"><?php echo $_SESSION['user']; ?></div>
+                    <div class="txt"><?php echo $_COOKIE['user']; ?></div>
                 </div>
                 <div class="col-lg-1 barnav">
                     <img class="photoprofil" src="image/PP.png" width= "20%" alt="photoprofil" style="border-radius: 50%" onclick="window.location.href='profil.php';">
