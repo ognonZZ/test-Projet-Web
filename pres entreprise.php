@@ -48,10 +48,10 @@
 
 
 <!-- Presentation du stage-->
-<div class="container">
-    
-        
-            <div class="col-6">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+        <br>
             <div class="gauche">
                 <div class="txt">
                 <legend>.   Stage de </legend>
@@ -89,6 +89,7 @@
 
     
             <div class="col-6"> 
+            <br>
               <div class="scroller"> 
             <label> Description du stage : <br>
         </label>
