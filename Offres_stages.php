@@ -1,9 +1,65 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }
+?>
+<?php 
+
+//On verifie si on a un id
+if(!isset($_GET["id"]) || empty($_GET["id"])){
+    //je n'ai pas l'id
+
+    header("location : Acceuil.php");
+    exit;
+}
+//je récupère l'id
+
+$id = $_GET["id"];
+
+// on se connecte a la base
+    require_once 'config.php';
+
+    // on va chercher les offres dans la base
+
+$sql= "SELECT * FROM 'offres_de_stage' WHERE 'id' = :id";
+
+//on prepare la requete
+$requete= $bdd->prepare($sql);
+
+//On injecte les paramètres
+
+$requete ->bindValue(":id", $id, PDO::PARAM_INT);
+
+//on execute les paramètres
+
+$requete->execute();
+
+//on recupère les Offres
+
+$Offres_de_stage= $requete->fetch();
+
+
+// on verifie si article est vide
+if($Offres_de_stage){
+    //pas d'article
+    http_response_code(404);
+    echo"article inexistant";
+    exit;
+}
+// Ici on a un article
+
+
+    //on définit le numéro de l'offre
+    $titre=strip_tags($Offres_de_stage["Titre_de_l_offre_du_stage"]);
+
+    ?>
+
 <!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
 	<title>InternView</title>
-    <link rel="stylesheet" href="./assets/presentation.css" class="css">
 	<link rel="stylesheet" href="./assets/vendors/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./assets/vendors/fontawesome/css/all.min.css">
 
@@ -11,7 +67,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/nav&footer.css" class="css">
-
+    <link rel="stylesheet" href="./assets/accueil.css" class="css">
+    <Link Rel="Stylesheet"Href="Https://Stackpath.Bootstrapcdn.Com/Bootstrap/4.3.1/Css/Bootstrap.Min.Css">
+    <Link Rel="Stylesheet" Href="Https://Cdnjs.Cloudflare.Com/Ajax/Libs/Font-Awesome/5.9.0/Css/All.Css">
 
 </head>
 <body>
@@ -19,6 +77,9 @@
     <nav>
         <div class="container-fluid header">
             <div class="row">
+                <div class="row">
+                <div class="recherche">
+                </div>
                 <div class="col-lg-2 barnav">
                     <img class="logo" src="image/logo.png" alt="LOGO">
                 </div>
@@ -43,67 +104,83 @@
             </div>
         </div>
     </nav>
+    <div><br></div>
 <!-- Barre de navigation -->
 
 
+    <!-- Barre de recherche-->
+<div class="container-fluid">
+    <div class="container">
+        <form class="form-inline" action="/recherche/" method="get">
+            <fieldset>    
+                <div class="input-group">
+                <div class="input-group-prepend">
+                <select id="oCategorie" name="oCategorie" class="form-control">
+                <option selected="selected" value="0">Catégorie</option>
+                <option value="1">INFO</option>
+                <option value="2">BTP</option>
+            </select>
+        </div>
+            <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Recherche</button>
+        </div>
+      </div>
+    </fieldset> 
+  </form>
+</div>
 
-<!-- Presentation du stage-->
-<div class="oui">
+
+
+<!-- Twitter-->
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-6">
-        <br>
-            <div class="gauche">
-                <div class="txt">
-                <legend id="b">.   Présentation de l'entreprise </legend>
-                <br>
-                <h2 id="a">.     Nom Entreprises</h2> 
-                 <br>
-                <h3 id="a">.    Description de l'entreprise:</h3>
-                 <br>
-                <h3 id="a">.    Secteur d'activitée</h3>
-                 <br>
-                <h3 id="a">.     Nombre de stagiaire déjà accepté en stage</h3>
-                 <br>
-                <h3 id="a">.     Evalutation des stagières</h3>
-                 <br>
-                <h3 id="a">.      Confiance pilote de promotion</h3>
-                <br>
-                <br>
-                <h3 id="a">localité : </h3>
-                 <br>
-                 <h3 id="a">Ville</h3>
-                 <br>
-                 <h3 id="a">Numéro de voie</h3>
-                 <br>
-                 <h3 id="a">Code Postal</h3>
-                 <br>
-                 <h3 id="a">Ville</h3>
-                 <br>
-            
-        </div>
-        </div>
-        </div>
-
-
-    
-            <div class="col-6"> 
             <br>
-              <div class="scroller"> 
-            <label> Description du stage : <br>
-        </label>
+            <div class="row">
+            <div class ="scroller">
+                <div class="col-6">
+                <div class="onestlabis">
+                <div class="twitter">
+                <a class="twitter-timeline" href="https://twitter.com/CESIingenieurs?ref_src=twsrc%5Etfw">Actualité twitter by CESIingenieurs</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
     </div>
-
-    
     </div>
+</div>
 </div>
 <br>
-</div>
+<!-- Offres de stages-->
+
+        </div>
+        <div class="col-6">
+        <br>
+           <div class="onestlabis">
+        <div class="Stagesrecent">
+                 <h1> Liste des stages <h1>
+
+ 
+
+        <articles>
+            <h1><a href=""> <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?> </a> </h1>
+            <p>Publié le <?= $Offres_de_stage['created_at'] ?></p>
+            <div>Domaine : <?= strip_tags($Offres_de_stage['Domaine_du_stage']) ?> </div>
+        </articles>
 
 
 
 
+
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+<br>
 <!-- Footer -->
+
     <footer class="bg-light text-center text-lg-start">
         <div class="container-fluid header">
             <div class="row background">
@@ -205,3 +282,4 @@
 <!-- Footer -->
 </body>
 </html>
+
