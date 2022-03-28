@@ -9,8 +9,8 @@
                 </div>
                 <div class="col-lg-3 barnav">
                     <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.php';">
-                    <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.html';">
-                    <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.html';">
+                    <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.php';">
+                    <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.php';">
                 </div>
                 <div class="col-lg-1 barnav">
                     <i class="fas fa-heart navicon " onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
