@@ -33,39 +33,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/nav&footer.css" class="css">
     <link rel="stylesheet" href="./assets/profil.css" class="css">
+    <link rel="manifest" href="./manifest.json">
+        <script>
+            if('serviceWorker' in navigator){ navigator.serviceWorker.register('serviceWorker.js')
+            .then( (sw) => console.log('Le Service Worker a été enregistrer', sw))
+            .catch((err) => console.log('Le Service Worker est introuvable !!!', err));
+            }
+        </script>
 
 </head>
 <body>
-<!-- Barre de navigation -->
-    <nav>
-        <div class="container-fluid header">
-            <div class="row">
-                <div class="col-lg-2 barnav">
-                    <img class="logo" src="image/logo.png" alt="LOGO">
-                </div>
-                <div class="col-lg-4 barnav">
-                </div>
-                <div class="col-lg-3 barnav">
-                    <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.php';">
-                    <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.html';">
-                    <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.html';">
-                </div>
-                <div class="col-lg-1 barnav">
-                    <i class="fas fa-heart navicon " onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
-                    <i class="fas fa-envelope navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
-					<i class="fas fa-bell navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
-                </div>
-                <div class="col-lg-1 barnav">
-                    <div class="txt">Prénom NOM</div>
-                </div>
-                <div class="col-lg-1 barnav">
-                    <img class="photoprofil" src="image/PP.png" width= "20%" alt="photoprofil" style="border-radius: 50%">
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div><br></div>
-<!-- Barre de navigation -->
+
+<?php include('nav.php'); ?>
 
 <!-- Upper right form-->
 <div class="container-fluid">
@@ -81,7 +60,7 @@
                 <div class="card-header">Photo de profil</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="https://pbs.twimg.com/profile_images/669103856106668033/UF3cgUk4_400x400.jpg" alt="">
+                    <img class="img-account-profile rounded-circle mb-2" src="image/UF3cgUk4_400x400.png" width="auto" height="auto" alt="">
                     <!-- Profile picture help block-->
                     <div class="text-dark font-weight-bold mb-4">En vrai???</div>
                     <!-- Profile picture upload button-->
@@ -225,7 +204,7 @@
                 <h4 class="mm">Mon CV</h4>
 				    <div class="card-body ">
 					    <div class="card-text">
-                            <iframe src="<?php echo $lien_doc; ?>" type="application/pdf" alt="cv" width="100%" height="100%" > </iframe>
+                            <iframe src="<?php echo $lien_doc; ?>" type="application/pdf" alt="cv" width="100%" height="100%" title="cv"> </iframe>
 					    </div>
                         
 				    </div><!--//card-body-->
@@ -233,8 +212,8 @@
                         <form action="cv_traitement.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
                             <!-- Le champs 'hidden' doit être défini avant le champs 'file'  -->   
-                            <label><strong>Selectionner mon CV</strong></label> :
-                            <input type="file" name="mon_fichier" class="btn btn-danger"><br>
+                            <label for="inputLastName"><strong>Selectionner mon CV</strong></label> :
+                            <input type="file" name="mon_fichier" class="btn btn-danger" id="inputLastName"><br>
                             <input type="submit" value="Valider" class="btn btn-danger">
                         </form>
 				    </div><!--//card-footer-->
@@ -259,111 +238,8 @@
                 </div>
 </div>
 
-
+<?php include('footer.php'); ?>
 
 <!-- Upper right form-->
-
-
-
-<!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container-fluid header">
-            <div class="row background">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                        <a href="#!" class="link">A propos de nous</a>
-                        </li>
-                        <li>
-                        <a href="#!" class="link">Nous contacter</a>
-                        </li>
-                        <li>
-                        <a href="#!" class="link">S’inscrire</a>
-                        </li>
-                        <li>
-                        <a href="#!" class="link">Support</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                            <a href="Stages.html" class="link">Stage</a>
-                            </li>
-                            <li>
-                            <a href="Entreprises.html" class="link">Entreprise</a>
-                            </li>
-                            <li>
-                            <a href="#!" class="link">Partenariat</a>
-                            </li>
-                        </ul>
-                </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-3">
-                    <section class="mb-4">
-                        <!-- Facebook -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #3b5998;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-facebook-f"></i
-                        ></a>
-                
-                        <!-- Twitter -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #55acee;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-twitter"></i
-                        ></a>
-                
-                        <!-- Google -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #dd4b39;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-google"></i
-                        ></a>
-                
-                        <!-- Instagram -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #ef4b64;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-instagram"></i
-                        ></a>
-                
-                        <!-- Linkedin -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #0082ca;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-linkedin-in"></i
-                        ></a>
-                        <!-- Github -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #333333;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-github"></i
-                        ></a>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <!-- Copyright -->
-        <div class="text-center p-3 copyright" style="background-color: #3C3F49;">
-          <pre>© 2022    À propos   Accessibilité   Conditions générales d’utilisation de InternView    Politique de confidentialité    Politique relative aux cookies   Politique de copyright</pre>
-        </div>
-        <!-- Copyright -->
-    </footer>
-<!-- Footer -->
 </body>
 </html>

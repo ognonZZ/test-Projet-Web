@@ -1,0 +1,72 @@
+{
+    "name": "InternView",
+    "short_name": "ITW",
+    "lang": "fr",
+    "start_url": "/profil.php",
+    "display": "standalone",
+    "background_color": "white",
+    "theme_color": "#DC143C",
+    "icons": [
+      {
+        "src": "image/logo.png",
+        "sizes": "647x365",
+        "type": "image/png"
+      },
+      {
+        "src": "image/logo128x72.png",
+        "type": "image/png",
+        "sizes": "128x72"
+    },
+    {
+        "src": "image/logo170x96.png",
+        "type": "image/png",
+        "sizes": "170x96"
+    },
+    {
+        "src": "image/logo227x128.png",
+        "type": "image/png",
+        "sizes": "227x128"
+    },
+    {
+        "src": "image/logo255x144.png",
+        "type": "image/png",
+        "sizes": "255x144"
+    },
+    {
+        "src": "image/logo269x152.png",
+        "type": "image/png",
+        "sizes": "269x152"
+    },
+    {
+        "src": "image/logo340x192.png",
+        "type": "image/png",
+        "sizes": "340x192",
+        "purpose": "any maskable"
+    },
+    {
+        "src": "image/logo680x384.png",
+        "type": "image/png",
+        "sizes": "680x384"
+    },
+    {
+        "src": "image/logo907x512.png",
+        "type": "image/png",
+        "sizes": "907x512"
+    },
+    {
+      "src": "image/logo512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+      {
+        "src": "image/PP.png",
+        "sizes": "30x30",
+        "type": "image/png"
+      },
+      {
+        "src": "image/UF3cgUk4_400x400.png",
+        "sizes": "400x400",
+        "type": "image/png"
+      }
+    ]
+  }
