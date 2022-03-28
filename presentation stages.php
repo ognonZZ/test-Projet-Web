@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>InternView</title>
-    <link rel="stylesheet" href="./assets/presentation_entreprise.css" class="css">
-    <link rel="stylesheet" href="./assets/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/vendors/fontawesome/css/all.min.css">
+	<meta charset="utf-8">
+	<title>InternView</title>
+    <link rel="stylesheet" href="./assets/presentation.css" class="css">
+	<link rel="stylesheet" href="./assets/vendors/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/vendors/fontawesome/css/all.min.css">
 
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -32,7 +32,7 @@
                 <div class="col-lg-1 barnav">
                     <i class="fas fa-heart navicon " onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
                     <i class="fas fa-envelope navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
-                    <i class="fas fa-bell navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
+					<i class="fas fa-bell navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
                 </div>
                 <div class="col-lg-1 barnav">
                     <div class="txt">Prénom NOM</div>
@@ -48,32 +48,38 @@
 
 
 <!-- Presentation du stage-->
-<div class="row">
-    
-            <div class="col-6">
+<div class="oui">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+        <br>
+            <div class="gauche">
                 <div class="txt">
-                <legend>Stage de </legend>
+                <legend id="b">.   Nom entreprise</legend>
                  <br>
-                <h2 id="date">Date de l'offre:</h2>
+                <h2 id="a">.     secteur d'activité</h2> 
                  <br>
-                <h3 id="a">Base de rénumération:</h3>
+                <h3 id="a">.     Nombre de stagiaire déjà accepté:</h3>
+                <br>
+                <h3 id="a">localité : </h3>
                  <br>
-                <h3 id="a">Nombres de place disponible:</h3>
+                 <h3 id="a">Ville</h3>
                  <br>
-                <h3 id="a">Nombre de stagiaire déjà accepté:</h3>
+                 <h3 id="a">Numéro de voie</h3>
                  <br>
-                <h3 id="a">Domaine de stage:</h3>
+                 <h3 id="a">Code Postal</h3>
                  <br>
-                <h3 id="a">Adresse mail de contact du stage</h3>
+                 <h3 id="a">Ville</h3>
                  <br>
-            </div>
+            
         </div>
-
-
+        </div>
+        </div>
 
 
     
             <div class="col-6"> 
+            <br>
               <div class="scroller"> 
             <label> Description du stage : <br>
         </label>
@@ -82,8 +88,8 @@
     
     </div>
 </div>
-
-
+<br>
+</div>
 
 
 
@@ -190,4 +196,3 @@
 <!-- Footer -->
 </body>
 </html>
-

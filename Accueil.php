@@ -4,7 +4,24 @@
         header('Location:connexion.php');
     }
 ?>
+<?php 
+    // on va chercher les articles dans la base
+    // on se connecte a la base
+    require_once 'config.php';
 
+    //On écrit la requête
+    $sql = "SELECT * FROM `offres_de_stages` ORDER BY `offres_de_stages`.`created_at` DESC";
+
+    //on exécute la requête
+    $Requete = $bdd->query($sql);
+
+    //on récupère les données
+    $offres_de_stage = $Requete->fetchAll();
+
+    //on définit le numéro de l'offre
+    $titre="Offres_de_stages";
+
+    ?>
 
 <!doctype html>
 <html lang="fr">
@@ -101,7 +118,7 @@
     </div>
 </div>
 </div>
-
+<br>
 <!-- Offres de stages-->
 
         </div>
@@ -109,28 +126,33 @@
         <br>
            <div class="onestlabis">
         <div class="Stagesrecent">
-                 <article class="txt">Ici se trouvera l'ensemble des sites internet
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                   </article>
-</div>       
-</div>  
-</div>
-</div>
-</div>
-</div>
+                 <h1> Liste des stages <h1>
+<section>
+
+    <?php 
+    foreach($offres_de_stage as $Offres_de_stage): ?>
+
+ 
+
+        <articles>
+            <h1><a href="Offres_stages.php?id=<?= $Offres_de_stage["id"] ?>"> <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?> </a> </h1>
+            <p>Publié le <?= $Offres_de_stage['created_at'] ?></p>
+            <div>Domaine : <?= strip_tags($Offres_de_stage['Domaine_du_stage']) ?> </div>
+        </articles>
 
 
 
 
+    <?php endforeach; ?>
 
+ </section>
 
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
 <br>
 <!-- Footer -->
 
