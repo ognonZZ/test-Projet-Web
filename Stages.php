@@ -1,3 +1,21 @@
+<?php
+
+require_once "config.php";
+
+$sql = "SELECT * FROM `offres_de_stages` ORDER BY `offres_de_stages`.`created_at` DESC";
+
+ $requete = $bdd->query($sql);
+ 
+$offre_stages = $requete->fetchAll();
+
+
+
+?>
+
+
+
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -179,6 +197,28 @@
 
 <!-- Filtres -->
 
+
+
+<h1> Liste Offres de stages</h1>
+<section>
+<?php foreach($offre_stages as $offre_stage):?>
+
+
+    <article>
+       <h1><?= strip_tags($offre_stage["Titre_de_l_offre_de_stage"])?></h1>
+       <p>Publié le : <?= $offre_stage["created_at"]?></p>
+       <divl>Description : <?= strip_tags($offre_stage["Description_du_stage"])?></div> 
+    </article>
+
+<?php endforeach;?>
+
+
+</section>
+
+
+
+
+
 <!-- Corps de page -->
 <div class="list-group offre">
   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
@@ -213,15 +253,3 @@
 
 </body>
 </html>
-
-
-<?php 
-
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projet";
-
-$conn = mysqli_connect($server, $username, $password, $dbname);
-
-?>
