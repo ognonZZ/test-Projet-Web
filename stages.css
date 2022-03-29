@@ -1,0 +1,29 @@
+.test {
+    background-color:#f8634a;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 2px solid black;
+}
+
+.dropdown-toggle{
+    border: 1px solid black;
+}
+
+.btn-danger{
+    border: 1px solid black;
+}
+
+.rounded{
+    border: 1px solid black;
+}
+
+
+body{
+    background-color: #e4e4e4;
+}
+/* corps de page */
+
+.offre {
+    margin-top: 10px;
+    padding: 20px;
+}
