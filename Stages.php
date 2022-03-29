@@ -32,7 +32,10 @@ $offre_stages = $requete->fetchAll();
 
 </head>
 <body>
+
+<!-- Navigation -->
 <?php include('nav.php'); ?>
+
 <!-- Filtres -->
 <div class = "container-fluid test">
 <div class="p-3 mb-2">

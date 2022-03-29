@@ -21,8 +21,8 @@
                 </div>
                 <div class="col-lg-3 barnav">
                     <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.php';">
-                    <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.html';">
-                    <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.html';">
+                    <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.php';">
+                    <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.php';">
                 </div>
                 <div class="col-lg-1 barnav">
                     <i class="fas fa-heart navicon " onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
@@ -33,7 +33,11 @@
                     <div class="txt"><?php echo $_COOKIE['user']; ?></div>
                 </div>
                 <div class="col-lg-1 barnav">
+<<<<<<< HEAD
                     <img class="photoprofil" src="image/PP.png" width= "20%" height="100%" alt="photoprofil" style="border-radius: 50%" onclick="window.location.href='profil.php';">
+=======
+                    <img class="photoprofil" src="image/PP.png" width= "20%" height="100%" alt="photoprofil" style="border-radius: 50%" onclick="window.location.href='profil.php'">
+>>>>>>> b79d81be1bcf3f541ea93b21807e3001ba082e92
                 </div>
             </div>
         </div>

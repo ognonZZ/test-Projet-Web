@@ -1,3 +1,58 @@
+
+<?php 
+
+//On verifie si on a un id
+if(!isset($_GET["id"]) || empty($_GET["id"])){
+    //je n'ai pas l'id
+
+    header("location : Acceuil.php");
+    exit;
+}
+//je récupère l'id
+
+$id = $_GET["id"];
+
+// on se connecte a la base
+    require_once 'config.php';
+
+    // on va chercher les offres dans la base
+
+$sql= "SELECT * FROM 'offres_de_stage' WHERE 'id' = :id";
+
+//on prepare la requete
+$requete= $bdd->prepare($sql);
+
+//On injecte les paramètres
+
+$requete ->bindValue(":id", $id, PDO::PARAM_INT);
+
+//on execute les paramètres
+
+$requete->execute();
+
+//on recupère les Offres
+
+$Offres_de_stage= $requete->fetch();
+
+
+// on verifie si article est vide
+if($Offres_de_stage){
+    //pas d'article
+    http_response_code(404);
+    echo"article inexistant";
+    exit;
+}
+// Ici on a un article
+
+
+    //on définit le numéro de l'offre
+    $titre=strip_tags($Offres_de_stage["Titre_de_l_offre_du_stage"]);
+
+    ?>
+
+
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -16,34 +71,7 @@
 </head>
 <body>
 <!-- Barre de navigation -->
-    <nav>
-        <div class="container-fluid header">
-            <div class="row">
-                <div class="col-lg-2 barnav">
-                    <img class="logo" src="image/logo.png" alt="LOGO">
-                </div>
-                <div class="col-lg-4 barnav">
-                </div>
-                <div class="col-lg-3 barnav">
-                    <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.php';">
-                    <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.php';">
-                    <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.php';">
-                </div>
-                <div class="col-lg-1 barnav">
-                    <i class="fas fa-heart navicon " onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
-                    <i class="fas fa-envelope navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
-					<i class="fas fa-bell navicon"onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
-                </div>
-                <div class="col-lg-1 barnav">
-                    <div class="txt">Prénom NOM</div>
-                </div>
-                <div class="col-lg-1 barnav">
-                    <img class="photoprofil" src="image/PP.png" width= "20%" alt="photoprofil" style="border-radius: 50%">
-                </div>
-            </div>
-        </div>
-    </nav>
-<!-- Barre de navigation -->
+<?php include('nav.php'); ?>
 
 
 
@@ -53,9 +81,16 @@
     <div class="row">
         <div class="col-6">
         <br>
+        <div class="gauche">
+            <div class="txt">
+          <articles>
+            <h1><a href=""> <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?> </a> </h1>
+            <p>Publié le <?= $Offres_de_stage['created_at'] ?></p>
+            <div>Domaine : <?= strip_tags($Offres_de_stage['Domaine_du_stage']) ?> </div>
+        </articles>
             <div class="gauche">
                 <div class="txt">
-                <legend id="b">.   Nom entreprise</legend>
+                <legend id="b">.  Titre du stage : <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?></legend>
                  <br>
                 <h2 id="a">.     secteur d'activité</h2> 
                  <br>
