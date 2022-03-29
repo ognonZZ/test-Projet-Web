@@ -14,10 +14,10 @@ body {
 }
 
 .twitter {
-    width: 90%;
+    width: 600px;
     border: 3px solid black;
     margin-left: 45px;
-    margin-right: 45px;
+    margin-right: 10px;
     margin-top: 1px;
 }
 
@@ -30,12 +30,24 @@ body {
 .Stagesrecent {
     background-color: #e4e4e4;
     border: 10px;
-    overflow-y: scroll;
-    scollbar-color: rebeccapurple green;
-    scrollbar-width: thin;
+    
+
 }
 
-.scroller {
+.scrollertw {
+    width: 870px;
+    height: 570px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 1px;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+    background-color: #e4e4e4;
+}
+
+.scrollerof {
+    width: 870px;
     height: 550px;
     margin-left: 10px;
     margin-right: 10px;
@@ -44,4 +56,11 @@ body {
     scrollbar-color: rebeccapurple green;
     scrollbar-width: thin;
     background-color: #e4e4e4;
+}
+
+    .article {
+    border: solid;
+    border-color: black;
+    margin: 2%;
+    background-color: white;
 }

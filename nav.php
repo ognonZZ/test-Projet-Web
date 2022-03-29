@@ -21,7 +21,7 @@
                     <div class="txt"><?php echo $_COOKIE['user']; ?></div>
                 </div>
                 <div class="col-lg-1 barnav">
-                    <img class="photoprofil" src="image/PP.png" width= "20%" height="100%" alt="photoprofil" style="border-radius: 50%">
+                    <img class="photoprofil" src="image/PP.png" width= "20%" height="100%" alt="photoprofil" style="border-radius: 50%" onclick="window.location.href='profil.php'">
                 </div>
             </div>
         </div>

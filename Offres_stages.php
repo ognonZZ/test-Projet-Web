@@ -1,9 +1,4 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION['user'])){
-        header('Location:connexion.php');
-    }
-?>
+
 <?php 
 
 //On verifie si on a un id
@@ -22,7 +17,7 @@ $id = $_GET["id"];
 
     // on va chercher les offres dans la base
 
-$sql= "SELECT * FROM 'offres_de_stage' WHERE 'id' = :id";
+$sql= "SELECT * FROM 'offres_de_stage' WHERE 'Offres_de_stage' = :id";
 
 //on prepare la requete
 $requete= $bdd->prepare($sql);
@@ -49,10 +44,9 @@ if($Offres_de_stage){
 }
 // Ici on a un article
 
-
+else{
     //on définit le numéro de l'offre
-    $titre=strip_tags($Offres_de_stage["Titre_de_l_offre_du_stage"]);
-
+    $titre=strip_tags($Offres_de_stage["Titre_de_l_offre_du_stage"]);}
     ?>
 
 <!doctype html>
@@ -163,7 +157,7 @@ if($Offres_de_stage){
  
 
         <articles>
-            <h1><a href=""> <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?> </a> </h1>
+            <h1> <?=strip_tags($Offres_de_stage["Titre_de_l_offre_du_stage"]) ?>  </h1>
             <p>Publié le <?= $Offres_de_stage['created_at'] ?></p>
             <div>Domaine : <?= strip_tags($Offres_de_stage['Domaine_du_stage']) ?> </div>
         </articles>

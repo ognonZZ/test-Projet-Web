@@ -57,9 +57,7 @@
 
 
     <!-- Barre de recherche-->
-<<<<<<< HEAD
 
-=======
 <div class="container-fluid">
     <div class="container">
         <form class="form-inline" action="/recherche/" method="get">
@@ -90,7 +88,7 @@
         <div class="col-6">
             <br>
             <div class="row">
-            <div class ="scroller">
+            <div class ="scrollertw">
                 <div class="col-6">
                 <div class="onestlabis">
                 <div class="twitter">
@@ -101,108 +99,69 @@
     </div>
 </div>
 </div>
-<<<<<<< HEAD
->>>>>>> 71387a7104e471799b19a165e74e673ece552e92
 
-=======
+
+
 <br>
->>>>>>> 89061a4ca6f3028e92e3974954c5453e41dd5280
-<!-- Offres de stages-->
 
-<<<<<<< HEAD
-    <form class="form-inline" action="/recherche/" method="get">
-        <fieldset>    
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <select id="oCategorie" name="oCategorie" class="form-control">
-                        <option selected="selected" value="0">Catégorie</option>
-                        <option value="1">...</option>
-                    </select>
-                </div>
-                    <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">Recherche</button>
-                </div>
-            </div>
-        </fieldset> 
-    </form>
+
+
+
+    
 
         <br>
-<div class="container-fluid">        
-    <div class="row justify-content-around">
-        
-        <div class="col-5">
-            <div class ="scroller">
-                <div class="onestlabis">
-                    <div class="twitter">
-                        <a class="twitter-timeline" href="https://twitter.com/CESIingenieurs?ref_src=twsrc%5Etfw">Actualité twitter by CESIingenieurs</a>
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
-        <!-- Offres de stages recentes -->
-
-        <div class="col-5">
-            <div class="onestlabis">
-                <div class="Stagesrecent">
-                    <article class="txt">Ici se trouvera l'ensemble des offres de stages
-                        <br>
-                        <br>
-                        <br>
-                        <a href="deconnexion.php" class="btn-danger btn-lg"> Déconnexion </a>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                    </article>
-                </div>       
-            </div>  
-        </div>
-    </div>  
-</div>
-=======
         </div>
         <div class="col-6">
         <br>
            <div class="onestlabis">
         <div class="Stagesrecent">
-                 <h1> Liste des stages <h1>
+                 <h1> Stages les plus récents <h1>
+
+
 <section>
 
+<div class ="scrollerof">
     <?php 
     foreach($offres_de_stage as $Offres_de_stage): ?>
 
  
-
+ 
+    <fieldset class="article">
+        
         <articles>
+        
             <h1><a href="Offres_stages.php?id=<?= $Offres_de_stage["id"] ?>"> <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?> </a> </h1>
             <p>Publié le <?= $Offres_de_stage['created_at'] ?></p>
             <div>Domaine : <?= strip_tags($Offres_de_stage['Domaine_du_stage']) ?> </div>
+            <div>Nom de l'entreprise' : <?= strip_tags($Offres_de_stage['nom_entreprises']) ?> </div>
+            <div>Nombres de places annoncées : <?= strip_tags($Offres_de_stage['nombre_de_places_offertes_aux_etudiants']) ?> </div>
+           
         </articles>
-
+       
+    </fieldset>
+  
 
 
 
     <?php endforeach; ?>
+</div>
 
- </section>
+</section>
 
-<<<<<<< HEAD
->>>>>>> 71387a7104e471799b19a165e74e673ece552e92
-=======
+
+
  </div>
  </div>
  </div>
  </div>
  </div>
  </div>
->>>>>>> 89061a4ca6f3028e92e3974954c5453e41dd5280
+
 <br>
 <?php include('footer.php'); ?>
+<a href="deconnexion.php" class="btn-danger btn-lg"> Déconnexion </a>
 </body>
 </html>
 
