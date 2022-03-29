@@ -1,71 +1,29 @@
-.barnav{
-    text-align: center;
-    margin: auto;
+.test {
+    background-color:#f8634a;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 2px solid black;
 }
 
-.header{
-    background-color: #3c3f49;
+.dropdown-toggle{
+    border: 1px solid black;
 }
 
-.logo{
-    width: 60%;
-    margin-top: 4%;
-    margin-bottom: 4%;
+.btn-danger{
+    border: 1px solid black;
 }
 
-.txt{
-    color:rgb(174, 145, 82);
+.rounded{
+    border: 1px solid black;
 }
 
-.navicon{
-    padding: 1%;    
-    color:rgb(174, 145, 82);
-    filter: drop-shadow(0 0 1px rgb(53,55,69));
-}
 
-.navicon:hover {
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: 5px;
-    border-bottom-style:solid;
-    border-color:rgb(174, 145, 82);
-}  
-
-.button {
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: none;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: rgb(174, 145, 82);
-    background-color: #3c3f49;
+body{
+    background-color: #e4e4e4;
 }
-  
-.button:hover {
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: 5px;
-    border-bottom-style:solid;
-    border-color:rgb(174, 145, 82);
-    
-}
+/* corps de page */
 
-.copyright{
-    color:rgb(174, 145, 82);
+.offre {
+    margin-top: 10px;
+    padding: 20px;
 }
-
-.link{
-    text-decoration: none;
-    color:rgb(174, 145, 82);
-}
-
-.background{
-    background-color:#3c3f49;
-    padding-top: 1.5%;
-}
-
