@@ -1,4 +1,12 @@
+<script src="./assets/vendors/jquery/jquery-3.6.0.min.js"></script>
 
+<?php if($_COOKIE['role'] == "Etudiant"){
+    echo "    <script> $(document).ready(function(){     
+
+            $('#gestion').hide();
+        }); 
+        </script>";
+ } ?>
 
  
 <!-- Barre de navigation -->
@@ -8,9 +16,10 @@
                 <div class="col-lg-2 barnav">
                     <img class="logo" src="image/logo.png" alt="LOGO">
                 </div>
-                <div class="col-lg-4 barnav">
-                </div>
                 <div class="col-lg-3 barnav">
+                </div>
+                <div class="col-lg-4 barnav">
+                <input class="style-button" type="button" id="gestion" value="Gestion" onclick="window.location.href='gestion.php';">
                     <input class="style-button" type="button" value="Accueil" onclick="window.location.href='Accueil.php';">
                     <input class="style-button" type="button" value="Stages" onclick="window.location.href='Stages.php';">
                     <input class="style-button" type="button" value="Entreprises" onclick="window.location.href='Entreprises.php';">

@@ -12,9 +12,6 @@
                         <a href="#!" class="link">Nous contacter</a>
                         </li>
                         <li>
-                        <a href="#!" class="link">S’inscrire</a>
-                        </li>
-                        <li>
                         <a href="#!" class="link">Support</a>
                         </li>
                     </ul>
@@ -22,10 +19,10 @@
                 <div class="col-md-2">
                         <ul class="list-unstyled mb-0">
                             <li>
-                            <a href="Stages.html" class="link">Stage</a>
+                            <a href="Stages.php" class="link">Stage</a>
                             </li>
                             <li>
-                            <a href="Entreprises.html" class="link">Entreprise</a>
+                            <a href="Entreprises.php" class="link">Entreprise</a>
                             </li>
                             <li>
                             <a href="#!" class="link">Partenariat</a>

@@ -1,55 +1,57 @@
-
 <?php 
+    session_start();
+    /*if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }*/
+    if(!isset($_COOKIE['user'])){
+        header('Location:connexion.php');
+    }
 
-//On verifie si on a un id
+    if($_COOKIE['role'] == "Etudiant"){
+        header('Location:Accueil.php');
+    }
+?>
+
+
+<?php
+
 if(!isset($_GET["id"]) || empty($_GET["id"])){
-    //je n'ai pas l'id
 
-    header("location : Acceuil.php");
+    header("Location: Stages.php");
     exit;
 }
-//je récupère l'id
 
-$id = $_GET["id"];
 
-// on se connecte a la base
-    require_once 'config.php';
+$id = !empty($_GET['id']) ? $_GET['id'] : NULL ; 
 
-    // on va chercher les offres dans la base
 
-$sql= "SELECT * FROM 'offres_de_stage' WHERE 'id' = :id";
+require_once "config.php";
 
-//on prepare la requete
-$requete= $bdd->prepare($sql);
+if ($id) {
 
-//On injecte les paramètres
+$sql = "SELECT * FROM offres_de_stages WHERE Offres_de_stage = :id ";
 
-$requete ->bindValue(":id", $id, PDO::PARAM_INT);
+$requete = $bdd->prepare($sql);
 
-//on execute les paramètres
+//$requete = $bdd->prepare("SELECT * FROM `offres_de_stages` WHERE 'Offres_de_stage = :id ");
+
+$requete->bindParam(':id', $id, PDO::PARAM_INT);
 
 $requete->execute();
 
-//on recupère les Offres
+$offre_stage = $requete->fetch();
 
-$Offres_de_stage= $requete->fetch();
-
-
-// on verifie si article est vide
-if($Offres_de_stage){
-    //pas d'article
-    http_response_code(404);
-    echo"article inexistant";
-    exit;
 }
-// Ici on a un article
+
+if(!$offre_stage){
+    http_response_code(404);
+    echo "Offre de stage inexistante";
+
+}
 
 
-    //on définit le numéro de l'offre
-    $titre=strip_tags($Offres_de_stage["Titre_de_l_offre_du_stage"]);
 
-    ?>
-
+?>
 
 
 
@@ -84,28 +86,18 @@ if($Offres_de_stage){
         <div class="gauche">
             <div class="txt">
           <articles>
-            <h1><a href=""> <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?> </a> </h1>
-            <p>Publié le <?= $Offres_de_stage['created_at'] ?></p>
-            <div>Domaine : <?= strip_tags($Offres_de_stage['Domaine_du_stage']) ?> </div>
+            <h1><a href=""> <?= strip_tags($offre_stage["Titre_de_l_offre_du_stage"]) ?> </a> </h1>
+            <p>Publié le <?= $offre_stage["created_at"]?></p>
+            <div>Domaine : <?= strip_tags($offre_stage["Domaine_du_stage"]) ?> </div>
         </articles>
             <div class="gauche">
                 <div class="txt">
-                <legend id="b">.  Titre du stage : <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?></legend>
+                <legend id="b"><h1> Titre du stage : <?= strip_tags($offre_stage["Titre_de_l_offre_du_stage"]) ?></h1></legend>
                  <br>
-                <h2 id="a">.     secteur d'activité</h2> 
+                <h2 id="a">Secteur d'activité <?= strip_tags($offre_stage["Secteur_D_activite"]) ?></h2> 
                  <br>
-                <h3 id="a">.     Nombre de stagiaire déjà accepté:</h3>
+                <h3 id="a">Nombre de stagiaire déjà accepté: <?= strip_tags($offre_stage["Nombres_de_stagiaires_CESI_deja_acceptes_en_stage"]) ?></h3>
                 <br>
-                <h3 id="a">localité : </h3>
-                 <br>
-                 <h3 id="a">Ville</h3>
-                 <br>
-                 <h3 id="a">Numéro de voie</h3>
-                 <br>
-                 <h3 id="a">Code Postal</h3>
-                 <br>
-                 <h3 id="a">Ville</h3>
-                 <br>
             
         </div>
         </div>
@@ -116,7 +108,7 @@ if($Offres_de_stage){
             <div class="col-6"> 
             <br>
               <div class="scroller"> 
-            <label> Description du stage : <br>
+            <label> Description du stage : <?= strip_tags($offre_stage["Description_du_stage"])?><br>
         </label>
     </div>
 

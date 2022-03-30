@@ -12,7 +12,7 @@
     $select = $bdd->query('SELECT Liens_du_document FROM documents WHERE ID_utilisateurs_Possede = "'.$id_user.'"');
     $donnees = $select->fetch();
     
-    $lien_doc = $donnees['0'];
+    $lien_doc = $donnees['Liens_du_document'];
 
 
 ?>
@@ -237,7 +237,16 @@
 			    </div><!--//card-->
                 </div>
 </div>
-
+<div class="row">
+    <div class="col-5">
+    </div>
+    <div class="col-2">
+        <a href="deconnexion.php" class="btn-danger btn-lg"> Déconnexion </a>
+    </div>
+    <div class="col-5">
+    </div>
+</div>
+<br>
 <?php include('footer.php'); ?>
 
 <!-- Upper right form-->

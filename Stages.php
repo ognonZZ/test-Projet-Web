@@ -1,17 +1,41 @@
-<?php
-
-require_once "config.php";
-
-$sql = "SELECT * FROM `offres_de_stages` ORDER BY `offres_de_stages`.`created_at` DESC";
-
- $requete = $bdd->query($sql);
- 
-$offre_stages = $requete->fetchAll();
-
-
-
+<?php 
+    
+    session_start();
+    /*if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }*/
+    
 ?>
+<?php 
+    // on va chercher les articles dans la base
+    // on se connecte a la base
+    require_once 'config.php';
 
+    //On écrit la requête
+    $sql = "SELECT * FROM `offres_de_stages` ORDER BY `offres_de_stages`.`created_at` DESC";
+    $sql1 = "SELECT * FROM `offres_de_stages` ORDER BY `offres_de_stages`.`base_de_remuneration`";
+
+    //on exécute la requête
+    $Requete = $bdd->query($sql);
+
+    //on récupère les données
+    $offres_de_stages = $Requete->fetchAll();
+
+    //on définit le numéro de l'offre
+    $titre="Offres_de_stages";
+
+    
+
+   
+    if(isset($_GET['page'])){
+        $page = $_GET['page'];
+    }else{
+        $page = 1;
+    }
+    $i = 1;
+
+
+    ?>
 
 
 
@@ -32,32 +56,19 @@ $offre_stages = $requete->fetchAll();
 
 </head>
 <body>
-
-<!-- Navigation -->
 <?php include('nav.php'); ?>
-
 <!-- Filtres -->
 <div class = "container-fluid test">
 <div class="p-3 mb-2">
     <div class ="row d-flex justify-content-around">
        <div class="col-2">
-         <button
-             class="btn btn-secondary dropdown-toggle"
-             type="button"
-              id="dropdownMenuButton"
-             data-mdb-toggle="dropdown"
-             aria-expanded="false"
-         >
-            Compétences
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+       <select id="choixCategorie" name="role" class="form-select"  id="validationCustom11"  required>
+                                <option selected disabled value="">Compétence</option>
+                                <option value="Pilote">Pilote</option>
+                                <option value="Etudiant">Etudiant</option>
+                                <option value="Délégué">Délégué</option>
+                                </select>
        </div>
-
-
 
        <div class="col-2">
          <button
@@ -146,12 +157,7 @@ $offre_stages = $requete->fetchAll();
        
        <div class ="row d-flex justify-content-start">
        <div class ="col-2 flex-sm-fill">
-       <div class="input-group rounded">
-  <input type="search" class="form-control rounded" placeholder="Tape moi stpl je kiffe" aria-label="Search" aria-describedby="search-addon" />
-  <span class="input-group-text border-0" id="search-addon">
-    <i class="fas fa-search"></i>
-  </span>
-</div>
+ 
        </div>
        <div class="col-2">
          <button
@@ -169,7 +175,6 @@ $offre_stages = $requete->fetchAll();
             <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
        </div>
-    
     
 
 
@@ -200,55 +205,89 @@ $offre_stages = $requete->fetchAll();
 
 <!-- Filtres -->
 
-
-
-<h1> Liste Offres de stages</h1>
-<section>
-<?php foreach($offre_stages as $offre_stage):?>
-
-
-    <article>
-       <h1><a href="afficher_stage.php?id=<?= $offre_stage["Offres_de_stage"]?>"><?= strip_tags($offre_stage["Titre_de_l_offre_de_stage"])?></a></h1>
-       <p>Publié le : <?= $offre_stage["created_at"]?></p>
-       <divl>Description : <?= strip_tags($offre_stage["Description_du_stage"])?></div> 
-    </article>
-
-<?php endforeach;?>
-
-
-</section>
-
-
-
-
-
 <!-- Corps de page -->
-<div class="list-group offre">
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
+
+<br>
+
+<?php 
+
+
+
+
+
+
+try {
+  
+  foreach($offres_de_stages as $offre_de_stage){  
+  if ((1+($page-1)*6<$i)&&(8+($page-1)*6>$i)) {  
+    
+    ?>
+  
+  <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column flex-lg-row">
+          <span class="avatar avatar-text0">TT</span>
+          <div class="row flex-fill">
+            <div class="col-xl-4">
+              <h4 class="h5"><?php echo ($offre_de_stage["Titre_de_l_offre_de_stage"]) ?> </h4>
+              <div class="badge bg-danger"><?php echo ($offre_de_stage["Domaine_du_stage"]) ?> </div> <div class="badge bg-success"> <?php echo ($offre_de_stage["base_de_remuneration"]) ?> </div>
+            </div>
+            <div class="col-xl-4">
+              <h4 class="h5"><?php echo ($offre_de_stage["Description_du_stage"]) ?></h4>
+              <small class="text-muted">Donec id elit non mi porta.</small>
+            </div>
+            <div class="col-xl-4">
+              <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
+              <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
+              <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
+              <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
+            </div>
+            <div class="col text-lg-end">
+              <a href="afficher_stage.php?id=<?= $offre_de_stage["Offres_de_stage"]?>" class="btn btn-secondary stretched-link"></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small>Donec id elit non mi porta.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small class="text-muted">Donec id elit non mi porta.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small class="text-muted">Donec id elit non mi porta.</small>
-  </a>
+    <?php } 
+    $i = $i+1;
+    
+  }
+} 
+
+  catch(PDOException $e) {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+    $bdd = null;
+?>
+
+<div class="mb-3">
+                    
+                    <?php 
+                        $pageInf = $page +1;
+                        if($page>1){
+                        $pageSup = $page -1;
+                        }else{
+                            $pageSup = 1;
+                        }
+
+                    ?>
+
+
+<div class="pagination p9">
+                        <ul>
+                            <a class="badge bg-danger sinus" href='stages.php?page=<?= $pageSup ?>'><h6>< précédent </h6></a>
+                            <a><?= $page ?></a>
+                            <a class="badge bg-danger sinus" href='stages.php?page=<?= $pageInf ?>'><h6>suivant ></h6></a>
+                        </ul>
+                    </div>
+  
+  
+
+
+
 </div>
+
 <!-- Corps de page -->
 
 <?php include('footer.php'); ?>

@@ -40,7 +40,7 @@ $offre_stages = $requete->fetchAll();
     <link rel="stylesheet" href="./assets/accueil.css" class="css">
     <link Rel="Stylesheet" href="Https://Stackpath.Bootstrapcdn.Com/Bootstrap/4.3.1/Css/Bootstrap.Min.Css">
     <link Rel="Stylesheet" href="Https://Cdnjs.Cloudflare.Com/Ajax/Libs/Font-Awesome/5.9.0/Css/All.Css">
-    <script src="./assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+    
         <script>
             if('serviceWorker' in navigator){ navigator.serviceWorker.register('serviceWorker.js')
             .then( (sw) => console.log('Le Service Worker a été enregistrer', sw))
@@ -53,16 +53,6 @@ $offre_stages = $requete->fetchAll();
 </head>
 <body>
 <?php include('nav.php'); ?>
-
-
-<?php if($_COOKIE['role'] == "Etudiant"){
-    echo "    <script> $(document).ready(function(){     
-
-            $('#gestion').hide();
-        }); 
-        </script>";
- } ?>
-
 
 
     <!-- Barre de recherche-->
