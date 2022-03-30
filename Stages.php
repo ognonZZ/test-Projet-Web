@@ -208,7 +208,7 @@ $offre_stages = $requete->fetchAll();
 
 
     <article>
-       <h1><?= strip_tags($offre_stage["Titre_de_l_offre_de_stage"])?></h1>
+       <h1><a href="afficher_stage.php?id=<?= $offre_stage["Offres_de_stage"]?>"><?= strip_tags($offre_stage["Titre_de_l_offre_de_stage"])?></a></h1>
        <p>Publié le : <?= $offre_stage["created_at"]?></p>
        <divl>Description : <?= strip_tags($offre_stage["Description_du_stage"])?></div> 
     </article>

@@ -1,14 +1,3 @@
-<?php 
-    
-    session_start();
-    /*if(!isset($_SESSION['user'])){
-        header('Location:connexion.php');
-    }*/
-    if(!isset($_COOKIE['user'])){
-        header('Location:connexion.php');
-    }
-?>
-
  
 <!-- Barre de navigation -->
 <nav>
@@ -33,11 +22,8 @@
                     <div class="txt"><?php echo $_COOKIE['user']; ?></div>
                 </div>
                 <div class="col-lg-1 barnav">
-<<<<<<< HEAD
                     <img class="photoprofil" src="image/PP.png" width= "20%" height="100%" alt="photoprofil" style="border-radius: 50%" onclick="window.location.href='profil.php';">
-=======
-                    <img class="photoprofil" src="image/PP.png" width= "20%" height="100%" alt="photoprofil" style="border-radius: 50%" onclick="window.location.href='profil.php'">
->>>>>>> b79d81be1bcf3f541ea93b21807e3001ba082e92
+
                 </div>
             </div>
         </div>

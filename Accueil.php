@@ -13,17 +13,14 @@
     // on se connecte a la base
     require_once 'config.php';
 
-    //On écrit la requête
-    $sql = "SELECT * FROM `offres_de_stages` ORDER BY `offres_de_stages`.`created_at` DESC";
+ 
+$sql = "SELECT * FROM `offres_de_stages` ORDER BY `offres_de_stages`.`created_at` DESC";
 
-    //on exécute la requête
-    $Requete = $bdd->query($sql);
+$requete = $bdd->query($sql);
 
-    //on récupère les données
-    $offres_de_stage = $Requete->fetchAll();
+$offre_stages = $requete->fetchAll();
 
-    //on définit le numéro de l'offre
-    $titre="Offres_de_stages";
+
 
     ?>
 
@@ -124,7 +121,7 @@
 
 <div class ="scrollerof">
     <?php 
-    foreach($offres_de_stage as $Offres_de_stage): ?>
+    foreach($offre_stages as $offre_stage): ?>
 
  
  
@@ -132,11 +129,11 @@
         
         <articles>
         
-            <h1><a href="Offres_stages.php?id=<?= $Offres_de_stage["id"] ?>"> <?= strip_tags($Offres_de_stage['Titre_de_l_offre_du_stage']) ?> </a> </h1>
-            <p>Publié le <?= $Offres_de_stage['created_at'] ?></p>
-            <div>Domaine : <?= strip_tags($Offres_de_stage['Domaine_du_stage']) ?> </div>
-            <div>Nom de l'entreprise' : <?= strip_tags($Offres_de_stage['nom_entreprises']) ?> </div>
-            <div>Nombres de places annoncées : <?= strip_tags($Offres_de_stage['nombre_de_places_offertes_aux_etudiants']) ?> </div>
+            <h1><a href="afficher_stage.php?id=<?= $offre_stage["Offres_de_stage"]?>"><?= strip_tags($offre_stage["Titre_de_l_offre_de_stage"])?></a></h1>
+            <p>Publié le <?= $offre_stage['created_at'] ?></p>
+            <div>Domaine : <?= strip_tags($offre_stage['Domaine_du_stage']) ?> </div>
+            <div>Nom de l'entreprise' : <?= strip_tags($offre_stage['nom_entreprises']) ?> </div>
+            <div>Nombres de places annoncées : <?= strip_tags($offre_stage['nombre_de_places_offertes_aux_etudiants']) ?> </div>
            
         </articles>
        
@@ -161,7 +158,7 @@
 
 <br>
 <?php include('footer.php'); ?>
-<a href="deconnexion.php" class="btn-danger btn-lg"> Déconnexion </a>
+
 </body>
 </html>
 
