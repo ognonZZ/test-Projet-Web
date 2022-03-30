@@ -1,3 +1,19 @@
+<?php 
+    
+    session_start();
+    /*if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }*/
+    if(!isset($_COOKIE['user'])){
+        header('Location:connexion.php');
+    }
+
+    if($_COOKIE['role'] == "Etudiant"){
+        header('Location:Accueil.php');
+    }
+?>
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -42,7 +58,7 @@
     <div class="col-4">
         <fieldset class="form1">
             <legend><b>Suppression</b></legend>
-                
+
                         <div class="row">
                             <div class="form-group"> 
                                 <div class="col-md-4 mb-3">
