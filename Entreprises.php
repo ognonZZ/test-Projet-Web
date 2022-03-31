@@ -178,21 +178,21 @@ try {
           <span class="avatar avatar-text0">TT</span>
           <div class="row flex-fill">
             <div class="col-xl-4">
-              <h4 class="h5"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?> </h4>
-              <div class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?> </div> <div class="badge bg-success"> <?php echo ($ID_entreprisess["Nom_entreprises"]) ?> </div>
+              <h4 class="h5"><?php echo strip_tags(($ID_entreprisess["Nom_entreprises"])) ?> </h4>
+              <div class="badge bg-danger"><?php echo ($ID_entreprisess["Secteur_D_avctivite"]) ?> </div> <div class="badge bg-success"> <?php echo ($ID_entreprisess["Nombres_de_stagiaires_CESI_deja_acceptes_en_stage"]) ?> </div>
             </div>
             <div class="col-xl-4">
-              <h4 class="h5"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></h4>
-              <small class="text-muted">Donec id elit non mi porta.</small>
+              <h4 class="h5"><?php echo strip_tags(($ID_entreprisess["Description_de_l_entreprise"])) ?></h4>
+              <small class="text-muted"></small>
             </div>
             <div class="col-xl-4">
-              <span class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></span>
+              <span class="badge bg-danger"><?php echo strip_tags(($ID_entreprisess["Confiance_Pilotes_de_promotion"])) ?>/10</span>
               <span class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></span>
               <span class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></span>
               <span class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></span>
             </div>
             <div class="col text-lg-end">
-              <a href="#" class="btn btn-secondary stretched-link"></a>
+              <a href="afficher_entreprise.php?id=<?= $ID_entreprisess["ID_entreprises"]?>" class="btn btn-secondary stretched-link"></a>
             </div>
           </div>
         </div>

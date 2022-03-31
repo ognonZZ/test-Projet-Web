@@ -1,9 +1,9 @@
 <?php 
     
     session_start();
-    /*if(!isset($_SESSION['user'])){
+    if(!isset($_COOKIE['user'])){
         header('Location:connexion.php');
-    }*/
+    }
     
 ?>
 <?php 
@@ -229,15 +229,15 @@ try {
           <span class="avatar avatar-text0">TT</span>
           <div class="row flex-fill">
             <div class="col-xl-4">
-              <h4 class="h5"><?php echo ($offre_de_stage["Titre_de_l_offre_de_stage"]) ?> </h4>
-              <div class="badge bg-danger"><?php echo ($offre_de_stage["Domaine_du_stage"]) ?> </div> <div class="badge bg-success"> <?php echo ($offre_de_stage["base_de_remuneration"]) ?> </div>
+              <h4 class="h5"><?php echo strip_tags(($offre_de_stage["Titre_de_l_offre_de_stage"])) ?> </h4>
+              <div class="badge bg-danger"><?php echo strip_tags(($offre_de_stage["Domaine_du_stage"])) ?> </div> <div class="badge bg-success"> <?php echo strip_tags(($offre_de_stage["base_de_remuneration"])) ?>€ </div>
             </div>
             <div class="col-xl-4">
-              <h4 class="h5"><?php echo ($offre_de_stage["Description_du_stage"]) ?></h4>
-              <small class="text-muted">Donec id elit non mi porta.</small>
+              <h4 class="h5"><?php echo strip_tags(($offre_de_stage["Description_du_stage"])) ?></h4>
+              <small class="text-muted"></small>
             </div>
             <div class="col-xl-4">
-              <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
+              <span class="badge bg-danger"><?php echo strip_tags(($offre_de_stage["competences"])) ?></span>
               <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
               <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
               <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>

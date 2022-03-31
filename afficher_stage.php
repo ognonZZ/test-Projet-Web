@@ -1,4 +1,12 @@
-
+<?php 
+    session_start();
+    /*if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }*/
+    if(!isset($_COOKIE['user'])){
+        header('Location:connexion.php');
+    }
+?>
 <?php
 
 if(!isset($_GET["id"]) || empty($_GET["id"])){
@@ -35,7 +43,6 @@ if(!$offre_stage){
 
 }
 
-$Secteur_D_avctivite = isset($array['Secteur_D_avctivite']) ? $array['Secteur_D_avctivite'] : '';
 
 
 
@@ -55,9 +62,20 @@ $Secteur_D_avctivite = isset($array['Secteur_D_avctivite']) ? $array['Secteur_D_
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/nav&footer.css" class="css">
     <link rel="stylesheet" href="./assets/gestion.css" class="css">
+    <script src="./assets/vendors/jquery/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
+
+<?php if($_COOKIE['role'] == "Etudiant"){
+    echo "    <script> $(document).ready(function(){     
+
+            $('#supr').hide();
+            $('#modif').hide();
+        }); 
+        </script>";
+ } ?>
+
 <?php include('nav.php'); ?>
 
 <div class="container-fluid ">
@@ -88,9 +106,14 @@ $Secteur_D_avctivite = isset($array['Secteur_D_avctivite']) ? $array['Secteur_D_
             <div><h1>Description : </h1><?= strip_tags($offre_stage["Description_du_stage"])?></div> 
         </article>
         </fieldset>
+        <br>
+        <form method="post" action="suppression_stage.php" >
+            <input type="hidden" name="stage_id" value= <?php echo $id; ?> >
+            <input id="supr" class="btn btn-primary" type="submit" name="Submit" value="Suprimer l'offre de stage">
+        </form>
+        <br>
+            <a href="modification_stage.php?id=<?php echo $offre_stage["Offres_de_stage"]?>"><input id="modif" class="btn btn-primary" type="submit" name="Submit2" value="Modifier l'offre de stage"></a>
     </div>
-
-
     </div>
 </div>
 </div>

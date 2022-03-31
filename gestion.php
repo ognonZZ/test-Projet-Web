@@ -50,7 +50,7 @@
                                     <button class="btn btn-primary" type="button" onclick="window.location.href='creation_entreprise.php'">Création fiche entreprise </button>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <button class="btn btn-primary" type="button" onclick="window.location.href='inscription.php'">Création fiche entreprise </button>
+                                    <button class="btn btn-primary" type="button" onclick="window.location.href='inscription.php'">Création utilisateur </button>
                                 </div>
                             </div>
                         </div>
@@ -64,9 +64,6 @@
 
                         <div class="row">
                             <div class="form-group"> 
-                                <div class="col-md-4 mb-3">
-                                    <button class="btn btn-primary" type="submit" onclick="window.location.href='suppression_stage.php'">Suppression offre de stage</button>
-                                </div>
                                 <div class="col-md-4 mb-3">
                                     <button class="btn btn-primary" type="submit" onclick="window.location.href='suppression_entreprise.php'">Suppression fiche entreprise </button>
                                 </div>
