@@ -1,3 +1,44 @@
+<?php 
+    
+   
+    /*if(!isset($_SESSION['user'])){
+        header('Location:connexion.php');
+    }*/
+    
+?>
+<?php 
+    // on va chercher les articles dans la base
+    // on se connecte a la base
+    require_once 'config.php';
+
+    //On écrit la requête
+    $sql = "SELECT * FROM `entreprises` ORDER BY `ID_entreprises` DESC";
+    $sql1 = "SELECT * FROM `entreprises` ORDER BY `ID_entreprises`";
+
+    //on exécute la requête
+    $Requete = $bdd->query($sql);
+
+    //on récupère les données
+    $entreprises = $Requete->fetchAll();
+
+    //on définit le numéro de l'offre
+    $titre="ID_entreprise";
+
+    
+
+   
+    if(isset($_GET['page'])){
+        $page = $_GET['page'];
+    }else{
+        $page = 1;
+    }
+    $i = 1;
+
+
+    ?>
+
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -10,111 +51,195 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/nav&footer.css" class="css">
+    <link rel="stylesheet" href="./assets/entreprises.css" class="css">
+
 </head>
 <body>
 <?php include('nav.php'); ?>
-<!-- Barre de navigation -->
 
-<!-- Footer -->
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container-fluid header">
-            <div class="row background">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                        <a href="#!" class="link">A propos de nous</a>
-                        </li>
-                        <li>
-                        <a href="#!" class="link">Nous contacter</a>
-                        </li>
-                        <li>
-                        <a href="#!" class="link">S’inscrire</a>
-                        </li>
-                        <li>
-                        <a href="#!" class="link">Support</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                            <a href="Stages.html" class="link">Stage</a>
-                            </li>
-                            <li>
-                            <a href="Entreprises.html" class="link">Entreprise</a>
-                            </li>
-                            <li>
-                            <a href="#!" class="link">Partenariat</a>
-                            </li>
-                        </ul>
-                </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-3">
-                    <section class="mb-4">
-                        <!-- Facebook -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #3b5998;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-facebook-f"></i
-                        ></a>
-                
-                        <!-- Twitter -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #55acee;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-twitter"></i
-                        ></a>
-                
-                        <!-- Google -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #dd4b39;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-google"></i
-                        ></a>
-                
-                        <!-- Instagram -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #ef4b64;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-instagram"></i
-                        ></a>
-                
-                        <!-- Linkedin -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #0082ca;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-linkedin-in"></i
-                        ></a>
-                        <!-- Github -->
-                        <a
-                        class="btn btn-primary btn-floating m-1"
-                        style="background-color: #333333;"
-                        href="#!"
-                        role="button"
-                        ><i class="fab fa-github"></i
-                        ></a>
-                    </section>
-                </div>
+<div class="container-fluid">
+<!-- Filtres -->
+<div class = "container-fluid test">
+<div class="p-3 mb-2">
+    <div class ="row d-flex justify-content-around">
+      
+
+
+
+       <div class="col-2">
+         <button
+             class="btn btn-secondary dropdown-toggle"
+             type="button"
+              id="dropdownMenuButton"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+         >
+            Entreprises
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+       </div>
+
+
+       <div class="col-2">
+         <button
+             class="btn btn-secondary dropdown-toggle"
+             type="button"
+              id="dropdownMenuButton"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+         >
+            Durée du stage 
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+       </div>
+       <div class="col-2">
+         <button
+             class="btn btn-secondary dropdown-toggle"
+             type="button"
+              id="dropdownMenuButton"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+         >
+            Promotion
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+       </div>
+      
+       <div class="col-2">
+         <button
+             class="btn btn-secondary dropdown-toggle"
+             type="button"
+              id="dropdownMenuButton"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+         >
+            Base de rémunération 
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+       </div>
+       </div>
+        <br>
+       
+       <div class ="row d-flex justify-content-start">
+    
+    
+    
+
+
+
+
+       <!-- bouton Appliquer-->
+        <div class="col-2">      
+            <button type="button" class="btn btn-danger">Appliquer mes critères</button>
+       </div>
+    </div>
+</div>
+</div>
+
+<!-- Filtres -->
+
+<!-- Corps de page -->
+
+<br>
+
+<?php 
+
+
+
+
+
+
+try {
+  
+  foreach($entreprises as $ID_entreprisess){  
+  if ((1+($page-1)*6<$i)&&(8+($page-1)*6>$i)) {  
+    
+    ?>
+  
+  <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column flex-lg-row">
+          <span class="avatar avatar-text0">TT</span>
+          <div class="row flex-fill">
+            <div class="col-xl-4">
+              <h4 class="h5"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?> </h4>
+              <div class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?> </div> <div class="badge bg-success"> <?php echo ($ID_entreprisess["Nom_entreprises"]) ?> </div>
             </div>
+            <div class="col-xl-4">
+              <h4 class="h5"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></h4>
+              <small class="text-muted">Donec id elit non mi porta.</small>
+            </div>
+            <div class="col-xl-4">
+              <span class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></span>
+              <span class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></span>
+              <span class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></span>
+              <span class="badge bg-danger"><?php echo ($ID_entreprisess["Nom_entreprises"]) ?></span>
+            </div>
+            <div class="col text-lg-end">
+              <a href="#" class="btn btn-secondary stretched-link"></a>
+            </div>
+          </div>
         </div>
-        <!-- Copyright -->
-        <div class="text-center p-3 copyright" style="background-color: #3C3F49;">
-          <pre>© 2022    À propos   Accessibilité   Conditions générales d’utilisation de InternView    Politique de confidentialité    Politique relative aux cookies   Politique de copyright</pre>
-        </div>
-        <!-- Copyright -->
-    </footer>
-<!-- Footer -->
+      </div>
+    </div>
+    <?php } 
+    $i = $i+1;
+    
+  }
+} 
+
+  catch(PDOException $e) {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+    $bdd = null;
+?>
+
+<div class="mb-3">
+                    
+                    <?php 
+                        $pageInf = $page +1;
+                        if($page>1){
+                        $pageSup = $page -1;
+                        }else{
+                            $pageSup = 1;
+                        }
+
+                    ?>
+
+
+<div class="pagination p9">
+                        <ul>
+                            <a class="badge bg-danger sinus" href='entreprises.php?page=<?= $pageSup ?>'><h6>< précédent </h6></a>
+                            <a><?= $page ?></a>
+                            <a class="badge bg-danger sinus" href='entreprises.php?page=<?= $pageInf ?>'><h6>suivant ></h6></a>
+                        </ul>
+                    </div>
+  
+  
+
+
+
+</div>
+
+</div>
+
+<?php include('footer.php'); ?>
 </body>
 </html>
 

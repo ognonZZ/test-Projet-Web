@@ -90,7 +90,7 @@
         </div>
         <!-- Copyright -->
         <div class="text-center p-3 copyright" style="background-color: #3C3F49;">
-          <pre>© 2022    À propos   Accessibilité   Conditions générales d’utilisation de InternView    Politique de confidentialité    Politique relative aux cookies   Politique de copyright</pre>
+          <pre>© 2022    À propos   Accessibilité   <a href="CGU.php" class="link">Conditions générales d’utilisation de InternView</a>    Politique de confidentialité    Politique relative aux cookies   Politique de copyright</pre>
         </div>
         <!-- Copyright -->
     </footer>
