@@ -77,7 +77,7 @@ if(!$offre_stage){
  } ?>
 
 <?php include('nav.php'); ?>
-
+ 
 <div class="container-fluid ">
 
 <div class="section">

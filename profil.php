@@ -9,14 +9,18 @@
     require_once 'config.php';
 
     $id_user = $_COOKIE['id_user'];
-    $select = $bdd->query('SELECT Liens_du_document FROM documents WHERE ID_utilisateurs_Possede = "'.$id_user.'"');
+    $select = $bdd->query('SELECT Liens_du_document FROM documents WHERE ID_utilisateurs_Possede = "'.$id_user.'" AND Code_document__CV_ou_LM_ = "CV" ');
     $donnees = $select->fetch();
     
     $lien_doc = $donnees['Liens_du_document'];
 
 
-?>
+    /*$select2 = $bdd->query('SELECT Liens_du_document FROM documents WHERE ID_utilisateurs_Possede = "'.$id_user.'" AND Code_document__CV_ou_LM_ = "PP" ');
+    $donnees2 = $select2->fetch();
+    
+    $lien_cv = $donnees2['Liens_du_document'];*/
 
+?>
 
 
 
@@ -60,11 +64,15 @@
                 <div class="card-header">Photo de profil</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="image/UF3cgUk4_400x400.png" width="auto" height="auto" alt="">
-                    <!-- Profile picture help block-->
-                    <div class="text-dark font-weight-bold mb-4">En vrai???</div>
+                    <img class="img-account-profile rounded-circle mb-2" src="./document_user/pp_user/xjhv5guA_400x400.png" width="auto" height="auto" alt="">
                     <!-- Profile picture upload button-->
-                    <button class="btn btn-danger" type="button">Changer ma photo de profil</button>
+                    <form action="pp_traitement.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                            <!-- Le champs 'hidden' doit être défini avant le champs 'file'  -->   
+                            <label for="inputLastName"><strong>Selectionner ma photo de profil</strong></label> :
+                            <input type="file" name="ma_pp" class="btn btn-danger" id="inputLastName"><br>
+                            <input type="submit" value="Valider" class="btn btn-danger">
+                        </form>
                 </div>
             </div>
             </div>

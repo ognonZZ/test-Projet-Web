@@ -8,6 +8,17 @@
         </script>";
  } ?>
 
+
+<?php
+   /* require_once 'config.php';
+
+    $id_user = $_COOKIE['id_user'];
+    $select = $bdd->query('SELECT Liens_du_document FROM documents WHERE ID_utilisateurs_Possede = "'.$id_user.'" AND Code_document__CV_ou_LM_ = "PP" ');
+    $donnees = $select->fetch();
+    
+    $lien_cv = $donnees['Liens_du_document'];*/
+?>
+
  
 <!-- Barre de navigation -->
 <nav>
@@ -33,7 +44,7 @@
                     <div class="txt"><?php echo $_COOKIE['user']; ?></div>
                 </div>
                 <div class="col-lg-1 barnav">
-                    <img class="photoprofil" src="image/PP.png" width= "20%" height="100%" alt="photoprofil" style="border-radius: 50%" onclick="window.location.href='profil.php';">
+                    <img class="photoprofil" src="./document_user/pp_user/xjhv5guA_400x400.png" width= "30%" height="100%" alt="photoprofil" style="border-radius: 50%" onclick="window.location.href='profil.php';">
 
                 </div>
             </div>
