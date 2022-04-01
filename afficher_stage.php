@@ -85,6 +85,8 @@ if(!$offre_stage){
     
     <div class="col-6">
         <fieldset class="form1">
+        <div class="row">
+        <div class="col-11">
         <label><h1><?= strip_tags($offre_stage["Titre_de_l_offre_de_stage"])?></h1></label>
              <div><p>Date de l'offre : <?= $offre_stage["date_de_l_offre"]?></p></div>
              <article>
@@ -95,7 +97,14 @@ if(!$offre_stage){
              <div>Base de rémunération : <?= strip_tags($offre_stage["base_de_remuneration"]) ?>€</div>
              <div>Adresse email de contact : <?= strip_tags($offre_stage["adresse_mail_stages"]) ?></div>
              </article>
+             </div>
+        <div class="col-1">
+        <i class="fas fa-heart navicon " onclick="window.location.href='https://twitter.com/ognonZZ';"></i>
+        </div>
+        </div>
         </fieldset>
+
+        
     </div>
     
 

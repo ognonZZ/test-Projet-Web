@@ -76,6 +76,15 @@ if ($id_localite) {
 <body>
 <?php include('nav.php'); ?>
 
+<?php if($_COOKIE['role'] == "Etudiant"){
+    echo "    <script> $(document).ready(function(){     
+
+            $('#supr').hide();
+            $('#modif').hide();
+        }); 
+        </script>";
+ } ?>
+
 <div class="container-fluid ">
 
 <div class="section">
@@ -115,6 +124,13 @@ if ($id_localite) {
             <div><h1>Description : </h1><?= strip_tags($entreprises["Description_de_l_entreprise"])?></div> 
         </article>
         </fieldset>
+        <br>
+        <form method="post" action="suppression_entreprise2.php" >
+            <input type="hidden" name="entreprise_id" value= <?php echo $id; ?> >
+            <input id="supr" class="btn btn-primary" type="submit" name="Submit" value="Suprimer l'entreprise">
+        </form>
+        <br>
+            <a href="modification_entreprise.php?id=<?php echo $entreprises["ID_entreprises"]?>"><input id="modif" class="btn btn-primary" type="submit" name="Submit2" value="Modifier l'entreprise"></a>
     </div>
 
 

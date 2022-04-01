@@ -236,12 +236,13 @@ try {
               <h4 class="h5"><?php echo strip_tags(($offre_de_stage["Description_du_stage"])) ?></h4>
               <small class="text-muted"></small>
             </div>
-            <div class="col-xl-4">
+            <div class="col-xl-3">
               <span class="badge bg-danger"><?php echo strip_tags(($offre_de_stage["competences"])) ?></span>
               <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
               <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
               <span class="badge bg-danger"><?php echo ($offre_de_stage["competences"]) ?></span>
             </div>
+            
             <div class="col text-lg-end">
               <a href="afficher_stage.php?id=<?= $offre_de_stage["Offres_de_stage"]?>" class="btn btn-secondary stretched-link"></a>
             </div>
